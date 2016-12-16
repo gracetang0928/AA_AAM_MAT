@@ -1,18 +1,5 @@
 from BasePage import *
-
-class PMListViewPage(BasicListView):
-	"""
-		PM Schedule List View Page
-	"""
-	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	# Elements of  PM Schedule list view
-	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-	generateButton = (By.ID,"userEnter")
-	def clickGenerate(self):
-		self.switchToCurrentPortletForm(PMListViewPage.mainIframe[1])
-		self.uidriver.clickElement(PMListViewPage.generateButton)
-
+from public import getDateAfter
 
 
 class PMDetailElements(object):
@@ -22,58 +9,128 @@ class PMDetailElements(object):
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	# Elements of  PM Schedule detail
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+	PMDetail = (By.ID,"PMScheduleDetail")
 	# Information Elements
 
 	scheduleName = (By.ID,"value(scheduleName)")
 	startDate = (By.ID,"date(startDate)")
 	template = (By.ID,"value(templateID)")
+	templateOptions = (By.XPATH,"//option")
+
 	scheduleStatus = (By.ID,"value(scheduleStatus)")
-	triggerBy = (By.ID,"value(triggerBy)")
 	nextScheduleDate = (By.ID,"date(triggerDate)")
+
+	triggerBy = (By.ID,"value(triggerBy)")
+	triggerByOptions = (By.XPATH,'//select[@id="value(triggerBy)"]/option')
+
+
 	timeIntervalInput = (By.ID,"value(timeInterval)")
 	timeIntervalType = (By.ID,"value(timeIntervalType)")
+	timeTypeOptions = (By.XPATH,'//select[@id="value(timeIntervalType)"]/option')
+
 	usageIntervalInput = (By.ID,"value(usageInterval)")
 	usageIntervalType = (By.ID,"value(usageIntervalType)")
+	usageTypeOptons = (By.XPATH,'//select[@id="value(usageIntervalType)"]/option')
 	comments = (By.ID,"value(comments)")
+
 
 	# CheckBox of detai, not all 
 	singleWOAllAssets = (By.ID,"value(singleWOFlag)")
 	linkAssetAddressToWO = (By.ID,"value(linkAssetAddresses)")
 
-	# Buttons on menu
-	submitButton = (By.ID,"acsubmit")
-	resetButton = (By.ID,"accelareset")
+	# Message Panel
+	msg = (By.ID,"errorMsgPanel")
 
-	def clickSubmit(self):
-		self.uidriver.clickElement(PMDetailElements.submitButton)
+
+# Search and  Other function in the list
+
+class PMListViewPage(BaseListView,PMDetailElements):
+	"""
+		PM Schedule List View Page
+	"""
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	# Elements of  PM Schedule list view
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	GenerateEnter = (By.ID,"userEnter")
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	# Generate PM page element
+	thoughDate = (By.ID,"date(throughDate)")
+
+	Preview = (By.ID,"preview")
+	Generate = (By.ID,"generate")
+	Complete = (By.ID,"a_CompleteGeneration")
+
+	def acceptPMAlert(self):
+		self.acceptAlert()	
+		self.switchToCurrentPortletForm("pmscheduleList")
+
+
+class PMFormPage(BaseFormPage):
+	# Tab Elements
+	PMDetail = (By.ID,"PMScheduleDetail")
+
+	assetID =(By.ID,"value(g1AssetID)")
+	streetNumber = (By.ID,"value(houseNumberStart)")
+	
+	LinkedAddress = (By.ID,"address")
+	SelectOfAddress = (By.ID,"add")
+
+	LinkedAsset = (By.ID,"LinkedAsset")
+	SubmitOfAsset = (By.ID,"submit4pmschedule")
+
+
+
+##############################################################################################
+# Update and new PM form
+##############################################################################################
+class PMDetailPage(BaseFormPage,PMDetailElements):
+
+	def inputComment(self,commentData):
+		self.uidriver.setTextToElement(PMDetailElements.comments,"Update by auto "+commentData)
+
+	def inputDetailData(self,scheduleNameInfo):
+		# Fill In Schedule Name
+		self.uidriver.setTextToElement(PMDetailPage.scheduleName,scheduleNameInfo)
+		# Select Template
+		self.uidriver.clickElement(PMDetailPage.template)
+		templateSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.template,PMDetailPage.templateOptions)
+		self.uidriver.clickElementEntity(templateSelectors[1])
+
+		# Fill In Start Date, current date
+		self.uidriver.setTextToElement(PMDetailPage.startDate,scheduleNameInfo[-2:])
+
+		# Select Trigger By
+		triggerBySelectors = self.uidriver.findElementsInParentElement(PMDetailPage.triggerBy,PMDetailPage.triggerByOptions)
+		self.uidriver.clickElementEntity(triggerBySelectors[1])
+		sleep(2)
+
+
+		# Select Time Interval Type and Fill In Time 
+		self.uidriver.setTextToElement(PMDetailPage.timeIntervalInput,scheduleNameInfo[-1])
+
+		sleep(1)
+		timeTypeSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.timeIntervalType,PMDetailPage.timeTypeOptions)
+		self.uidriver.clickElementEntity(timeTypeSelectors[1])
 		sleep(1)
 
-	def clickRest(self):
-		self.uidriver.clickElement(PMDetailElements.resetButton)
 
+		# Select Usage Interval Type and Fill In Usage
+		self.uidriver.setTextToElement(PMDetailPage.usageIntervalInput,scheduleNameInfo[-2:])
 
+		usageTypeSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.usageIntervalType,PMDetailPage.usageTypeOptons)
+		self.uidriver.clickElementEntity(usageTypeSelectors[1])
+		sleep(1)
 
-class PMSearchPage(BasePage,PMDetailElements):
-	# Elements of search
-	mainIframe = (By.ID,"pmscheduleList")	
+		# Fill In Next Schedule Date
+		self.uidriver.setTextToElement(PMDetailPage.nextScheduleDate,getDateAfter(1))
 
-	def fillInSearchCondition(self,pmName):
-		self.switchToCurrentPortletForm(PMSearchPage.mainIframe[1])
+		# Check checkbox 
+		self.uidriver.clickElement(PMDetailPage.singleWOAllAssets)
+		self.uidriver.clickElement(PMDetailPage.linkAssetAddressToWO)
+
 		sleep(2)
-		self.uidriver.setTextToElement(PMSearchPage.scheduleName,pmName)
-		
-
-
-
-class PMSchedulDetailPage(BasePage,PMDetailElements):
-	# Buttons Elements
-	saveButton = (By.ID,"save")
-
-
-
-	def clickSave(self):
-		self.uidriver.clickElement(PMDetailElements.saveButton)
 
 
 

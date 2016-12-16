@@ -11,94 +11,121 @@ class  AssetManageTest(unittest.TestCase):
 	"""
 		Asset Manager Basic Function
 	"""
-	newAssetID  = generatNowStr()
+
+	portlet = "data"
 	def setUp(self):
 		loginAndFindPortlet(self,"Assets")
 	def tearDown(self):
 		endCase(self)
+
+	def searchAsset(self,assetIDInfo):
+
+		# Find the created PM record
+		aList = AssetsListView(self.uidriver,self.portlet)
+		aList.click(aList.Search)
+
+		# Wait the search page and Asset the page is loaded
+		aList.uidriver.waitForElementPresent(aList.assetID,30)
+		self.assertIsNotNone(aList.uidriver.findElement(aList.assetID),msg="Error：Asset search page did not load.")
+
+		# input the search condition , the click submit
+		aList.inputSearchCondition(aList.assetID,assetIDInfo)
+		aList.click(aList.Submit)
+
+		# Check the result 
+		self.assertIsNotNone(aList.uidriver.findElement(aList.firstRecord),"Error：No result return　when search PM. ")
+
+		# Click the link of PM record 
+
 	def test_NewAsset_MAT(self):
+		# Click the New button , Access the new asset page 
+		aList = AssetsListView(self.uidriver,self.portlet)
+		aList.click(aList.New)
 
-		assetList = AssetsListView(self.uidriver)
-		assetList.clickNew()
-		assetDetailPage = AssetDetailPage(self.uidriver)
-		assetDetailPage.selectAssetDetailTab()
+		
+		# Access the detail page , and wait for load over
+		detail = AssetDetailPage(self.uidriver,self.portlet)
+		detail.uidriver.waitForElementPresent(detail.Submit,30)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.Submit),msg="Error：Asset detail page didn't load.")
 
-		self.assertIsNotNone(assetDetailPage.uidriver.findElement(assetDetailPage.submitButton),msg = "Error：Asset detail page didn't load. Can't find submit button.")
+		# Input data , the click submit
+		detail.inputDetailData(newAssetID)
+		detail.click(detail.Submit)
 
-		assetDetailPage.fillInData(self.newAssetID)
-		assetDetailPage.clickSubmit()
-		msgText = assetDetailPage.uidriver.getTextOfElement(assetDetailPage.msg)
-		assetDetailPage.uidriver.saveScreenshot("..\\report\\image\\createAsset"+generatNowStr()+".png")
-		self.assertEquals(msgText,"The Asset created successfully.",msg =  "Error：Create Asset failed.")
+		# Save the screen shot
+		detail.uidriver.saveScreenshot("..\\report\\image\\CreateAsset"+generatNowStr()+".png")
+		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),"The Asset created successfully.",msg="Error: New Asset failed.")
+
+		# if pop up EMSE window , close ot
 		localWindow = self.uidriver.getCurrentWindowHandle()
-		assetDetailPage.closeEMSE(localWindow)		
+		detail.closeEMSE(localWindow)		
 
-	def test_SearchAsset_MAT(self):		
-		assetList = AssetsListView(self.uidriver)
-		assetList.clickSearch()
-		searchPage = SearchAssetPage(self.uidriver)
-		searchPage.fillInSearchCondition(self.newAssetID)
-		self.assertIsNotNone(searchPage.uidriver.findElement(searchPage.submitButton),"Error：Asset search page didn't load. Can't find submit button. ")
-		searchPage.clickSubmit()
-		assetList.uidriver.saveScreenshot("..\\report\\image\\searchAsset"+generatNowStr()+".png")
-		self.assertIsNone(assetList.uidriver.findElement(assetList.noResult),"Error：No Results return.")
+	def test_SearchAndUpdateAsset_MAT(self):
 
+		# Find the new Asset
+		self.searchAsset(newAssetID)#newAssetID
 
-	def test_CloneAsset_MAT(self):		
-		assetList = AssetsListView(self.uidriver)
-		assetList.selectRecordsInList()
-		assetList.uidriver.waitForElementNotPresent(assetList.searchButton,20)
-		assetDetailTab = AssetDetailPage(self.uidriver)
-		assetDetailTab.selectAssetDetailTab()
+		# Access the detail page
+		aList = AssetsListView(self.uidriver,self.portlet)
+		aList.selectFirstRecordInList()
 
-		self.assertIsNotNone(assetDetailTab.uidriver.findElement(assetDetailTab.cloneButton),msg = "Error：Asset detail page didn't load. Can't find clone button.")
+		# Wait for load over
+		detail = AssetDetailPage(self.uidriver,self.portlet)
+		detail.uidriver.waitForElementPresent(detail.AssetDetail,30)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.AssetDetail),msg="Error: Update Asset page is still loading.")
 
-		assetDetailTab.clickClone()
+		# Input the comment, Save
+		detail.inputDesc(newAssetID)
+		detail.click(detail.Save)
 
-		self.assertIsNotNone(assetDetailTab.uidriver.findElement(assetDetailTab.cloneSubmit),msg = "Error：Asset clone page didn't load.Can't find submit button of clone page")
-
-		assetDetailTab.fillInCloneData("AA","2")
-		assetDetailTab.clickSubmitOfClone()
-
-		assetDetailTab.uidriver.waitForElementPresent(assetDetailTab.msg,20)
-		assetDetailTab.uidriver.saveScreenshot("..\\report\\image\\cloneAsset"+generatNowStr()+".png")
-		msgText = assetDetailTab.uidriver.getTextOfElement(assetDetailTab.cloneMsg)
-
-		self.assertTrue((msgText.find("added successfully")>0),msg = "Error：Clone Asset Failed.")
-
-		assetDetailTab.clickComplete()
-		assetDetailTab.uidriver.waitForElementNotPresent(assetDetailTab.msg,20)
+		# Save the screen shot
+		detail.uidriver.saveScreenshot("..\\report\\image\\Asset-Update"+generatNowStr()+".png")
+		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),"The Asset updated successfully.",msg="Error: Update Asset failed.")
 
 
-	def test_UpdateAsset_MAT(self):			
-		assetList = AssetsListView(self.uidriver)
-		assetList.selectRecordsInList()
-		assetList.uidriver.waitForElementNotPresent(assetList.searchButton,40)
-		assetDetailTab = AssetDetailPage(self.uidriver)
+		
+	def test_CloneAsset_MAT(self):	
+		# Find the new Asset
+		self.searchAsset(newAssetID)
 
-		assetDetailTab.selectAssetDetailTab()
+		# Access the detail page
+		aList = AssetsListView(self.uidriver,self.portlet)
+		aList.selectFirstRecordInList()
 
-		self.assertIsNotNone(assetDetailTab.uidriver.findElement(assetDetailTab.saveButton),msg = "Error：Asset detail page didn't load. Can't find clone button.")
+		# Wait for load over
+		detail = AssetDetailPage(self.uidriver,self.portlet)
+		detail.uidriver.waitForElementPresent(detail.AssetDetail,30)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.AssetDetail),msg="Error：Asset detail page didn't load. ")
 
-		assetDetailTab.fillInUpdateDesc("Test update 12/8")
-		assetDetailTab.clickSave()		
-		assetDetailTab.uidriver.waitForElementPresent(assetDetailTab.msg,20)
+		# Click Clone
+		detail.click(detail.Clone)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.SubmitOfClone),msg = "Error：Asset clone page didn't load.")
 
-		updateMsg = assetDetailTab.uidriver.getTextOfElement(assetDetailTab.msg)
-		assetDetailTab.uidriver.saveScreenshot("..\\report\\image\\updateAsset"+generatNowStr()+".png")
-		self.assertEquals(updateMsg,"The Asset updated successfully.",msg = "Error：Update Asset failed.")
+		# Input clone data
+		detail.inputCloneData("S","2")
+		detail.click(detail.SubmitOfClone)
+
+		# Waite for clone infomation page
+		detail.uidriver.waitForElementPresent(detail.Complete,20)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.Complete),msg = "Error：Asset clone page didn't load.")
+
+		detail.uidriver.saveScreenshot("..\\report\\image\\CloneAsset"+generatNowStr()+".png")
+		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),"2 record(s) added successfully.",msg="Error:Clone Asset failed.")
+
+		detail.click(detail.Complete)
 
 
 	def test_DeleteAsset_MAT(self):
-		assetList = AssetsListView(self.uidriver)
-		
-		# Select a record then click delete		
-		assetList.selectRecordsInList()
-		assetList.clickDelete()
-
-		deleteMsg = assetList.uidriver.getTextOfElement(assetList.errorMsg)
-		deleteMsg.uidriver.saveScreenshot("..\\report\\image\\deleteAsset"+generatNowStr()+".png")
-		self.assertEquals(deleteMsg,"1 record(s) deleted successfully.",msg = "Error：Delete asset failed.")
+		aList = AssetsListView(self.uidriver,self.portlet)
+		aList.checkAssetRecord(1)
+		form = AssetFormPage(self.uidriver,self.portlet)
+		form.click(form.backArrow)
+		aList.switchToCurrentPortletForm("dataList")
+		aList.uidriver.waitForElementPresent(aList.Delete,20)
+		aList.click(aList.Delete)
+		aList.uidriver.saveScreenshot("..\\report\\image\\DeleteAsset"+generatNowStr()+".png")
+		deleteMsg = aList.uidriver.getTextOfElement(aList.msg)
+		self.assertEquals(deleteMsg,"1 record(s) deleted successfully.",msg = "Error: Delete asset failed. " +deleteMsg)
 
 
 
@@ -107,14 +134,14 @@ class  AssetManageTest(unittest.TestCase):
 if __name__=="__main__":
 #	unittest.main()
 #################################################################################################################################	
-	caseList = ("test_NewAsset_MAT",\
- "test_SearchAsset_MAT","test_DeleteAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT")
+	caseList = ("test_NewAsset_MAT","test_SearchAndUpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT")
+ #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
 	testUnit = unittest.TestSuite()
 
 	for case in caseList:
 		testUnit.addTest(AssetManageTest(case))
 
-	reportName = '..\\report\\testResult'+generatNowStr()+'.html'
+	reportName = '..\\report\\Asset'+generatNowStr()+'.html'
 
 	fp = file(reportName,'wb')
 

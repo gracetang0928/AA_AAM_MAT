@@ -235,7 +235,11 @@ class UIDriver:
 		self.switchToAlert()
 	"""
 	def switchToAlert(self):
-		sef._driver.switch_to_alert()
+		self._driver.switch_to_alert()
+
+	def acceptAlert(self):
+		alert = self._driver.switch_to_alert()
+		alert.accept()
 
 
 	def switchToDefaultContent(self):
@@ -412,9 +416,10 @@ class UIDriver:
 		element = None
 		try:
 			element = WebDriverWait(self._driver,period).until(EC.presence_of_element_located(elementInfo))
+			sleep(1)
 			
 		except:
-			print ("Error :　Cannot find %s in %d seconds" %(elementInfo,period))
+			print ("Error: Cannot find %s in %d seconds" %(elementInfo,period))
 		return element
 
 	def waitForElementNotPresent(self, elementInfo, period):
@@ -428,12 +433,14 @@ class UIDriver:
 		element = None
 		try:
 			element = WebDriverWait(self._driver,period).until(EC.element_to_be_clickable(elementInfo))
+			sleep(1)
 		except:
-			print ("Error : Cannot find %s in %d seconds" %(elementInfo,period))
+			print ("Error: Cannot find %s in %d seconds" %(elementInfo,period))
 		return element
 
 	def waitForFrameAvailableAndSwitch(self, frameInfo,period):
 		try:
 			element = WebDriverWait(self._driver,period).until(EC.frame_to_be_available_and_switch_to_it(frameInfo))
+			sleep(1)
 		except:
-			print ("Error : Cannot find %s in %d seconds" %(frameInfo,period))
+			print ("Error: Cannot find %s in %d seconds" %(frameInfo,period))

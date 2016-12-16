@@ -1,6 +1,35 @@
-.Execute finish!
-
-----------------------------------------------------------------------
-Ran 1 test in 20.017s
-
-OK
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+The system cannot find the path specified.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\TC_01_Asset' is not recognized as an internal or external command,
+operable program or batch file.
+'C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\TC_02_PM' is not recognized as an internal or external command,
+operable program or batch file.
+Traceback (most recent call last):
+  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\TC_03_PartInventory_MAT.py", line 200, in <module>
+    fp = file(reportName,'wb')
+IOError: [Errno 2] No such file or directory: '..\\report\\Part1216171033.html'
