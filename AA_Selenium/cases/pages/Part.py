@@ -9,7 +9,7 @@ class PartDetailElements(BaseElements):
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	# Required Field Elements
-	partDetail = (By.ID,"partDetail")
+	Detail = (By.ID,"partDetail")
 	partNumber = (By.ID,"value(partNumber)")
 	
 	unitOfMeasure = (By.ID,"value(unitOfMeasure)")
@@ -25,41 +25,41 @@ class PartDetailElements(BaseElements):
 	partStatus = (By.ID,"value(partStatus)")
 	brand = (By.ID,'value(brand)')
 
-class PartDetailPage(BaseFormPage,PartDetailElements):
+class PartDetail(BaseForm,PartDetailElements):
 
-	def inputComment(self,partNumber):
-		self.uidriver.setTextToElement(PartDetailPage.comments,"Update part by auto "+partNumber)
+	def updateDetail(self,partNumber):
+		self.uidriver.setTextToElement(PartDetail.comments,"Update part by auto "+partNumber)
 
 
 	def inputDetailData(self,partNumber):
 				# Fill In Schedule Name
-		self.uidriver.setTextToElement(PartDetailPage.partNumber,partNumber)
+		self.uidriver.setTextToElement(PartDetail.partNumber,partNumber)
 		# Select Unit Of Measure
-#		self.uidriver.clickElement(PartDetailPage.unitOfMeasure)
-		unitSelectors = self.uidriver.findElementsInParentElement(PartDetailPage.unitOfMeasure,PartDetailPage.unitOfMeasureOptions)
+#		self.uidriver.clickElement(PartDetail.unitOfMeasure)
+		unitSelectors = self.uidriver.findElementsInParentElement(PartDetail.unitOfMeasure,PartDetail.unitOfMeasureOptions)
 		self.uidriver.clickElementEntity(unitSelectors[1])
 		sleep(1)
 
 		# Select Calculate Type
-#		self.uidriver.clickElement(PartDetailPage.calculateType)
-		calculateSelectors = self.uidriver.findElementsInParentElement(PartDetailPage.calculateType,PartDetailPage.calculateTypeOptions)
+#		self.uidriver.clickElement(PartDetail.calculateType)
+		calculateSelectors = self.uidriver.findElementsInParentElement(PartDetail.calculateType,PartDetail.calculateTypeOptions)
 		self.uidriver.clickElementEntity(calculateSelectors[1])
 		sleep(1)
 
 		# Fill In Unit Cost
-		self.uidriver.setTextToElement(PartDetailPage.unitCost,partNumber[-2:])
+		self.uidriver.setTextToElement(PartDetail.unitCost,partNumber[-2:])
 
 
 		# Fill In brand name
-		self.uidriver.setTextToElement(PartDetailPage.brand,"Grace")
+		self.uidriver.setTextToElement(PartDetail.brand,"Grace")
 
 
 		# Fill in desc
-		self.uidriver.setTextToElement(PartDetailPage.partDesc,"This is test by grace. "+partNumber)
+		self.uidriver.setTextToElement(PartDetail.partDesc,"This is test by grace. "+partNumber)
 
 
 
-class PartListViewPage(BaseListView,PartDetailElements):
+class PartListView(BaseListView,PartDetailElements):
 	"""
 		Part List View Page
 	"""
@@ -69,7 +69,7 @@ class PartListViewPage(BaseListView,PartDetailElements):
 
 	pass
 
-class PartFormPage(BaseFormPage):	
+class PartForm(BaseForm):	
 
 	# Tab Elements
 	PartTransaction = (By.ID,"partTransaction")
@@ -87,38 +87,55 @@ class PartFormPage(BaseFormPage):
 	# Transaction Form ----Common Type Required Fields
 
 	transactionType = (By.ID,"value(transactionType)")
+
 	locationName = (By.ID,"value(locationSeq)")
 	locationNameOptions = (By.XPATH,'//select[@id="value(locationSeq)"]/option')
+
 	quantity = (By.ID,"value(quantity)")
 	# Transaction Form Elements----Transfer Type Required Fields
 	transferToLocation = (By.ID,"value(toLocationSeq)")
+	transLocationOptions =  (By.XPATH,'//select[@id="value(toLocationSeq)"]/option')
+
+	comments = (By.ID,"value(comments)")
 
 	# Part Contact Tab Button: Look Up , Delete
 	# Look Up Contact Form Element
 
-
-	
-	# Look up Asset page elements
-	
+	# Part Supply Table
+	table = (By.ID,"content_main_table")	
 	
 	# Look up address info
 
-	def inputReceivePart(self,quantityInfo):
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	# Transaction Type : ISSUE, RECEIVE, TRANSFER, ADJUST, RESERVE
+	def inputTransactionData(self,transType,quantityInfo):
+		# Select Type
+		typeSelectors = self.uidriver.findElementsInParentElement(PartForm.transactionType,(By.XPATH,'//option'))
+		for select in typeSelectors:
+			if select.get_attribute("value")==transType :
+				self.uidriver.clickElementEntity(select)
+				break
+		sleep(1)
 
 		# Select Location 
-		locationSelectors = self.uidriver.findElementsInParentElement(PartFormPage.locationName,PartFormPage.locationNameOptions)
-		self.uidriver.clickElementEntity(locationSelectors[1])
+		locationSelectors = self.uidriver.findElementsInParentElement(PartForm.locationName,PartForm.locationNameOptions)
+		for select in locationSelectors:
+			if (select.get_attribute("value")).startswith("NPL"):
+				self.uidriver.clickElementEntity(select)
+				break
 		sleep(1)
-		self.uidriver.setTextToElement(PartFormPage.quantity,quantityInfo)
 
-	def inputIssuePart(self,streetNumberInfo):
-		self.uidriver.setTextToElement(PMFormPage.streetNumber,streetNumberInfo)
-
-	def inputTransferPart(self,resultPortlet):
+		
 		sleep(1)
-		dataCheckbox = self.uidriver.findElementInParentElement((By.ID,"row1"),(By.XPATH,'//input[@property="value(chk_%s,0)"]'%resultPortlet))
-		self.uidriver.clickElementEntity(dataCheckbox)
 
+		# Select Transfer To Location
+		if(transType=="TRANSFER") :
+			transferSelectors = self.uidriver.findElementsInParentElement(PartForm.transferToLocation,PartForm.transLocationOptions)
+			self.uidriver.clickElementEntity(transferSelectors[2])
+			sleep(1)
+
+		self.uidriver.setTextToElement(PartForm.quantity,quantityInfo)
+		self.uidriver.setTextToElement(PartForm.comments,transType + quantityInfo + "parts")
 
 
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Part MAT Test Results</title>
+    <title>Asset Admin MAT Test Results</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
@@ -188,10 +188,10 @@ function showOutput(id, name) {
 --></script>
 
 <div class='heading'>
-<h1>Part MAT Test Results</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-12-16 16:48:11</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:42.350000</p>
-<p class='attribute'><strong>Status:</strong> Error 2</p>
+<h1>Asset Admin MAT Test Results</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-12-23 18:16:31</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:38.420000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
 
 <p class='description'>Case Execute Results</p>
 </div>
@@ -221,42 +221,33 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>PartTest: PM Schedules Basic Function </td>
+<tr class='passClass'>
+    <td>TimeAccountingTest: Time Accounting Function </td>
+    <td>2</td>
     <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>2</td>
     <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_NewPart_MAT</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_TC_TimeAccount_001_NewTimeGroupInAdmin_MAT: Create Time Group In Admin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Login system successfully.
-Error : Can't find element  ('xpath', ".//*[@id='all-pages']/ul/li[2]/div/div[1]/a")
-Traceback (most recent call last):
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\TC_03_PartInventory_MAT.py", line 14, in setUp
-    loginAndFindPortlet(self,"Part Inventory")
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\public.py", line 36, in loginAndFindPortlet
-    self.dashBoard.findPortlet(portletName)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\LoginPage.py", line 68, in findPortlet
-    self.uidriver.clickElement(Dashboard.searchResult)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\UIDriver.py", line 181, in clickElement
-    element.click()
-AttributeError: 'NoneType' object has no attribute 'click'
+pt1.1: Login system successfully.
+Access Administration successfully.
+Logout successfully.
 
 
         </pre>
@@ -266,58 +257,24 @@ AttributeError: 'NoneType' object has no attribute 'click'
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='errorCase'><div class='testcase'>test_SearchAndUpdatePart_MAT</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_TC_TimeAccount_002_NewTimeTypeInAdmin_MAT: Create Time Type In Admin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: Error: Cannot find ('id', 'login_box') in 15 seconds
-Error : Can't find element  ('id', 'login_box')
-('id', 'login_box') ('xpath', './/iframe') : Can't find such element. Please check the element information
-Traceback (most recent call last):
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\TC_03_PartInventory_MAT.py", line 14, in setUp
-    loginAndFindPortlet(self,"Part Inventory")
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\public.py", line 32, in loginAndFindPortlet
-    self.loginPage.loginSystem("qa","tang","tang")
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\LoginPage.py", line 20, in loginSystem
-    self.uidriver.switchToIframe(loginBox)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\UIDriver.py", line 221, in switchToIframe
-    self._driver.switch_to_frame(iframeInfo)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 537, in switch_to_frame
-    self._switch_to.frame(frame_reference)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\switch_to.py", line 67, in frame
-    self._driver.execute(Command.SWITCH_TO_FRAME, {'id': frame_reference})
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 199, in execute
-    response = self.command_executor.execute(driver_command, params)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 395, in execute
-    return self._request(command_info[0], url, body=data)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 425, in _request
-    self._conn.request(method, parsed_url.path, body, headers)
-  File "C:\Python27\lib\httplib.py", line 1053, in request
-    self._send_request(method, url, body, headers)
-  File "C:\Python27\lib\httplib.py", line 1093, in _send_request
-    self.endheaders(body)
-  File "C:\Python27\lib\httplib.py", line 1049, in endheaders
-    self._send_output(message_body)
-  File "C:\Python27\lib\httplib.py", line 893, in _send_output
-    self.send(msg)
-  File "C:\Python27\lib\httplib.py", line 855, in send
-    self.connect()
-  File "C:\Python27\lib\httplib.py", line 832, in connect
-    self.timeout, self.source_address)
-  File "C:\Python27\lib\socket.py", line 575, in create_connection
-    raise err
-error: [Errno 10061] No connection could be made because the target machine actively refused it
+pt1.2: Login system successfully.
+Access Administration successfully.
+Logout successfully.
 
 
         </pre>
@@ -330,9 +287,9 @@ error: [Errno 10061] No connection could be made because the target machine acti
 <tr id='total_row'>
     <td>Total</td>
     <td>2</td>
-    <td>0</td>
-    <td>0</td>
     <td>2</td>
+    <td>0</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

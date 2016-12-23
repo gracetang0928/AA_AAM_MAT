@@ -14,7 +14,7 @@ from BasePage import *
 # Asset detail page elements set
 ##############################################################################
 
-class AssetDetailElement(object):
+class AssetCADetailElement(object):
 	"""
 	Asset detail main elements set
 	"""

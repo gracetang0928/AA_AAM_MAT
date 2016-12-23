@@ -1,0 +1,50 @@
+Asset:
+4AssetManageTest
+admin
+test_TC_Admin_001_NewAttribute_MAT
+test_TC_Admin_002_NewAttributeTable_MAT
+test_TC_Admin_003_NewAttributeTemplate_MAT
+
+daily:
+test_TC_Asset_001_NewAsset_MAT
+test_TC_Asset_002_SearchAndUpdateAsset_MAT
+test_TC_Asset_003_CloneAsset_MAT
+test_TC_Asset_004_DeleteAsset_MAT
+---------------------------------------------------------------------------------------------
+1. part:PartTest
+test_TC_Admin_009_NewPartLocation_MAT
+
+test_TC_Part_001_NewPart_MAT
+test_TC_Part_002_SearchAndUpdatePart_MAT
+test_TC_Part_003_ReceiveToPartTransaction_MAT
+test_TC_Part_004_IssueToPartTransaction_MAT
+test_TC_Part_005_TransferToPartTransaction_MAT
+test_TC_Part_006_CheckSupply_MAT
+test_TC_Part_007_DeletaPart_MAT
+-----------------------------------------------------------------------------------------------------
+3pm :PMScheduleTest
+test_TC_Admin_008_NewWOTemplate_MAT
+
+test_TC_PM_001_NewPM_MAT
+test_TC_PM_002_SearchAndUpdatePM_MAT
+test_TC_PM_003_LinkAssetToPM_MAT
+test_TC_PM_004_LinkAddressToPM_MAT
+test_TC_PM_005_GeneratePMRecord_MAT
+test_TC_PM_006_DeletePM_MAT
+------------------------------------------------------------------------------------------------
+2. admin:AdminTest
+
+test_TC_Admin_005_NewCostGroup_MAT
+test_TC_Admin_004_NewCostItem_MAT
+test_TC_Admin_006_NewTimeType_MAT
+test_TC_Admin_007_NewTimeGroup_MAT
+
+
+ASSET ca
+test_TC_Admin_009_NewAssetCA_MAT
+test_TC_Admin_009_NewRatingType_MAT
+test_TC_AssetCA_009_NewAssetCA_MAT
+test_TC_AssetCA_009_SearchAndUpdateCA_MAT
+
+
+

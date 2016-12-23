@@ -1,5 +1,5 @@
-Button name : ��ϵͳ��ʵ�ʵ�����һ��,�����ظ��������������
-Class name : ÿ�����ʵ�����ĸ����д
-Method name: ��һ������Сд���ӵڶ���������ÿ������ĸ��д
-Filed name: ��һ������Сд���ӵڶ���������ÿ������ĸ��д
-Tab name :��ϵͳ��ʵ�ʵ�����һ��,�����ظ��������������
+Button name : 与系统的实际的名字一样,若有重复，则视情况而定
+Class name : 每个单词的首字母都大写
+Method name: 第一个单词小写，从第二个单词起，每个首字母大写
+Filed name: 第一个单词小写，从第二个单词起，每个首字母大写
+Tab name :与系统的实际的名字一样,若有重复，则视情况而定

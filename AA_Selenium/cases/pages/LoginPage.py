@@ -10,7 +10,7 @@ class LoginPage(BasePage):
 	pwordInput = (By.NAME,"password")
 	loginButton = (By.ID,"submit_")
 	rememberMe = (By.NAME,"rememberMe")
-	switch_new_ui_link = (By.LINK_TEXT,"Switch New UI")
+	switchNewUI = (By.LINK_TEXT,"Switch New UI")
 
 
 	def loginSystem(self,agency,userName,passWord):
@@ -28,6 +28,10 @@ class LoginPage(BasePage):
 		self.uidriver.setTextToElement(LoginPage.userNameInput,userName)
 		self.uidriver.setTextToElement(LoginPage.pwordInput,passWord)
 		self.uidriver.clickElement(LoginPage.loginButton)
+		# if it is old UI 
+		sleep(2)
+		
+
 
 
 class Dashboard(BasePage):
@@ -38,17 +42,19 @@ class Dashboard(BasePage):
 	portletSearch =  (By.XPATH,".//*[@id='all-pages']/input")
 	searchResult = (By.XPATH,".//*[@id='all-pages']/ul/li[2]/div/div[1]/a")
 	listViewButton = (By.XPATH,'//a[@title="list view"]')
-#	setting_tov360 = 
 
 #setting enter assess point 
 	toggle = (By.XPATH,'//div[@class="settings dropdown"]/a')
 	dropdownMenuUl = (By.CSS_SELECTOR,".dropdown-menu")
+	administration = (By.XPATH,"//li[2]/div/a")
 	signOutLink = (By.XPATH,'//li[5]/div/a')
 #portlet
 	results_page = (By.ID,"iframe-page-container")
 
 #logout 
 	loginBoxDiv = (By.ID,"login_box")
+# Admin
+	setUpFrame = (By.ID,"setup")
 
 	def findPortlet(self,portletName):
 
@@ -67,6 +73,18 @@ class Dashboard(BasePage):
 #		self.uidriver.waitForElementPresent(Dashboard.searchResult,20)
 		self.uidriver.clickElement(Dashboard.searchResult)
 		print "Access ",portletName,"successfully."
+
+	def accessAdmin(self):
+		self.uidriver.switchToDefaultContent()
+		sleep(3)
+		self.uidriver.clickElement(Dashboard.toggle)
+		sleep(3)
+		admin = self.uidriver.findElementInParentElement(Dashboard.dropdownMenuUl,Dashboard.administration)
+		self.uidriver.clickElementEntity(admin)
+		self.uidriver.waitForElementPresent(Dashboard.setUpFrame,20)
+		self.switchToCurrentContainer(Dashboard.setUpFrame)
+		print "Access Administration successfully."
+
 
 	def logoutSystem(self):
 		self.uidriver.switchToDefaultContent()

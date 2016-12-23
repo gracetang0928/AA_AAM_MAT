@@ -2,8 +2,8 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep
-import time
 import datetime
+
 
 ############################################################################
 # Public Function
@@ -18,11 +18,17 @@ def generatLineNO(numberInfo):
 	return lineNO
 
 
+
 ############################################################################
 # Every page has this iframe element
 ############################################################################
 
 class BaseElements(object):
+	# Dashboard iframe
+	containerFrame = (By.ID,"iframe-page-container")
+	# Admin Iframe
+	adminFrame = (By.ID,"administration")
+
 	# List view element
 	Search = (By.ID,"a_search")
 	New = (By.ID,"a_new")
@@ -50,33 +56,36 @@ class BasePage(object):
 	def __init__(self,uiDriver):
 		self.uidriver = uiDriver
 	
-	def closeEMSE(self,localhandle):
-		sleep(8)
+	def closeEMSE(self):
+		localhandle = self.uidriver.getCurrentWindowHandle()
 		allhandles = self.uidriver.getWindowHandles()
 		if (len(allhandles)>1):
+			sleep(8)
 			for handle in allhandles:
 				if handle!=localhandle:
 					self.uidriver.switchToWindow(handle)
 					break	
 			self.uidriver.closeWindow()	
 		self.uidriver.switchToWindow(localhandle)
-		sleep(5)
+		sleep(3)
 
 	#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	#	Every portlet page contain page container iframe , then every page need the method
 	#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	def switchToContainer(self):
-		self.uidriver.switchToDefaultContent()
-		self.uidriver.waitForElementPresent(BasePage.containerIframe,30)
-		# sleep(10)
-		self.uidriver.switchToIframe("iframe-page-container")
 
 	"""
 		Make the uidriver switch to portlet iframe
 		- iframeInfo : iframe entity or id of iframe	
 	"""
-	def switchToCurrentPortletForm(self,iframeInfo):
-		self.switchToContainer()
+
+	def switchToCurrentContainer(self,containerInfo):
+		self.uidriver.switchToDefaultContent()
+		self.uidriver.waitForElementPresent(containerInfo,30)
+		# sleep(10)
+		self.uidriver.switchToIframe(containerInfo[1])
+
+	def switchToCurrentForm(self,containerInfo,iframeInfo):
+		self.switchToCurrentContainer(containerInfo)
 		self.uidriver.waitForFrameAvailableAndSwitch(iframeInfo,70)
 		if ((self.uidriver.getCurrentUrl()).find("server")>0):
 			# Local site , just sleep shoter time 
@@ -84,6 +93,7 @@ class BasePage(object):
 			sleep(3)
 		else:
 			sleep(7)
+
 
 
 	# Click Button or tab
@@ -96,6 +106,8 @@ class BasePage(object):
 		self.uidriver.switchToDefaultContent()
 
 	def inputSearchCondition(self,elementInfo,streetNumberInfo):
+		self.uidriver.waitForElementPresent(elementInfo,30)
+		sleep(1)
 		self.uidriver.setTextToElement(elementInfo,streetNumberInfo)
 
 
@@ -108,13 +120,18 @@ class BaseListView(BasePage,BaseElements):
 	lineData = (By.ID,"row"+lineNO)
 	lineDataLink = (By.ID,"linkrow"+lineNO)
 	noResult = (By.ID,"popNorecord")
-
+	#portlet like :　＂id-part-admin＂
 	def __init__(self,uiDriver,portlet):
 		super(BaseListView,self).__init__(uiDriver)
-		self.portlet = portlet
-		self.mainIframe = (By.ID,portlet+"List")
-		self.lineDataCheckbox = (By.XPATH, '//input[@name="value(chk_%s,%d)"]'%(portlet,int(BaseListView.lineNO)-1))
-		self.switchToCurrentPortletForm(self.mainIframe[1])
+		# Portlet Name end With admin, Current Form is administration
+		if portlet.endswith("admin"):
+			currentFrame = self.adminFrame		
+		else:
+			currentFrame = self.containerFrame
+		self.frame = portlet.split('-')
+		portletTemp =(self.frame[0],self.frame[1]+"List")
+		self.lineDataCheckbox = (By.XPATH, '//input[@name="value(chk_%s,%d)"]'%(self.frame[1],int(BaseListView.lineNO)-1))
+		self.switchToCurrentForm(currentFrame,portletTemp)
 
 	# Click the link of first record 
 	def selectFirstRecordInList(self):
@@ -123,22 +140,28 @@ class BaseListView(BasePage,BaseElements):
 
 	# Check the checkbox of first record 
 	def checkFirstRecordInList(self):
-		firstData = self.uidriver.findElementInParentElement((By.ID,"row1"),(By.XPATH, '//input[@name="value(chk_%s,0)"]'%self.portlet))
+		firstData = self.uidriver.findElementInParentElement((By.ID,"row1"),(By.XPATH, '//input[@name="value(chk_%s,0)"]'%self.frame[1]))
 		self.uidriver.clickElementEntity(firstData)
-
-	
-	
+		
 	#Random select a record in the list , then checked the checkbox
 	def checkRecordInList(self):
 		data = self.uidriver.findElementInParentElement(self.lineData,self.lineDataCheckbox)
 		self.uidriver.clickElementEntity(data)
 
-class BaseFormPage(BasePage,BaseElements):
+
+
+class BaseForm(BasePage,BaseElements):
 
 	def __init__(self,uiDriver,portlet):
-		super(BaseFormPage,self).__init__(uiDriver)
-		self.mainIframe = (By.ID,portlet+"Form")
-		self.switchToCurrentPortletForm(self.mainIframe[1])
+		super(BaseForm,self).__init__(uiDriver)
+		if portlet.endswith("admin"):
+			currentFrame = self.adminFrame		
+		else:
+			currentFrame = self.containerFrame
+		frame = portlet.split('-')
+		portletTemp =(frame[0],frame[1]+"Form")
+		self.switchToCurrentForm(currentFrame,portletTemp)
+
 
 	# In Tab page , select record to connect
 	def checkRecordInResultList(self,resultPortlet):

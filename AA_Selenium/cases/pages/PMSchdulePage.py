@@ -9,7 +9,7 @@ class PMDetailElements(object):
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	# Elements of  PM Schedule detail
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	PMDetail = (By.ID,"PMScheduleDetail")
+	Detail = (By.ID,"PMScheduleDetail")
 	# Information Elements
 
 	scheduleName = (By.ID,"value(scheduleName)")
@@ -44,7 +44,7 @@ class PMDetailElements(object):
 
 # Search and  Other function in the list
 
-class PMListViewPage(BaseListView,PMDetailElements):
+class PMListView(BaseListView,PMDetailElements):
 	"""
 		PM Schedule List View Page
 	"""
@@ -67,7 +67,7 @@ class PMListViewPage(BaseListView,PMDetailElements):
 		self.switchToCurrentPortletForm("pmscheduleList")
 
 
-class PMFormPage(BaseFormPage):
+class PMForm(BaseForm):
 	# Tab Elements
 	PMDetail = (By.ID,"PMScheduleDetail")
 
@@ -85,50 +85,54 @@ class PMFormPage(BaseFormPage):
 ##############################################################################################
 # Update and new PM form
 ##############################################################################################
-class PMDetailPage(BaseFormPage,PMDetailElements):
+class PMDetail(BaseForm,PMDetailElements):
 
-	def inputComment(self,commentData):
-		self.uidriver.setTextToElement(PMDetailElements.comments,"Update by auto "+commentData)
+	def updateDetail(self,commentData,woTemplate):
+		self.uidriver.setTextToElement(PMDetail.comments,"Update by auto "+commentData)
 
 	def inputDetailData(self,scheduleNameInfo):
 		# Fill In Schedule Name
-		self.uidriver.setTextToElement(PMDetailPage.scheduleName,scheduleNameInfo)
+		self.uidriver.setTextToElement(PMDetail.scheduleName,scheduleNameInfo)
 		# Select Template
-		self.uidriver.clickElement(PMDetailPage.template)
-		templateSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.template,PMDetailPage.templateOptions)
-		self.uidriver.clickElementEntity(templateSelectors[1])
+		self.uidriver.clickElement(PMDetail.template)
+		templateSelectors = self.uidriver.findElementsInParentElement(PMDetail.template,PMDetail.templateOptions)
+		for select in templateSelectors:
+			if select.get_attribute("value")==woTemplate:
+				self.uidriver.clickElementEntity(select)
+				break
+		sleep(1)
 
 		# Fill In Start Date, current date
-		self.uidriver.setTextToElement(PMDetailPage.startDate,scheduleNameInfo[-2:])
+		self.uidriver.setTextToElement(PMDetail.startDate,scheduleNameInfo[-2:])
 
 		# Select Trigger By
-		triggerBySelectors = self.uidriver.findElementsInParentElement(PMDetailPage.triggerBy,PMDetailPage.triggerByOptions)
+		triggerBySelectors = self.uidriver.findElementsInParentElement(PMDetail.triggerBy,PMDetail.triggerByOptions)
 		self.uidriver.clickElementEntity(triggerBySelectors[1])
 		sleep(2)
 
 
 		# Select Time Interval Type and Fill In Time 
-		self.uidriver.setTextToElement(PMDetailPage.timeIntervalInput,scheduleNameInfo[-1])
+		self.uidriver.setTextToElement(PMDetail.timeIntervalInput,scheduleNameInfo[-1])
 
 		sleep(1)
-		timeTypeSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.timeIntervalType,PMDetailPage.timeTypeOptions)
+		timeTypeSelectors = self.uidriver.findElementsInParentElement(PMDetail.timeIntervalType,PMDetail.timeTypeOptions)
 		self.uidriver.clickElementEntity(timeTypeSelectors[1])
 		sleep(1)
 
 
 		# Select Usage Interval Type and Fill In Usage
-		self.uidriver.setTextToElement(PMDetailPage.usageIntervalInput,scheduleNameInfo[-2:])
+		self.uidriver.setTextToElement(PMDetail.usageIntervalInput,scheduleNameInfo[-2:])
 
-		usageTypeSelectors = self.uidriver.findElementsInParentElement(PMDetailPage.usageIntervalType,PMDetailPage.usageTypeOptons)
+		usageTypeSelectors = self.uidriver.findElementsInParentElement(PMDetail.usageIntervalType,PMDetail.usageTypeOptons)
 		self.uidriver.clickElementEntity(usageTypeSelectors[1])
 		sleep(1)
 
 		# Fill In Next Schedule Date
-		self.uidriver.setTextToElement(PMDetailPage.nextScheduleDate,getDateAfter(1))
+		self.uidriver.setTextToElement(PMDetail.nextScheduleDate,getDateAfter(1))
 
 		# Check checkbox 
-		self.uidriver.clickElement(PMDetailPage.singleWOAllAssets)
-		self.uidriver.clickElement(PMDetailPage.linkAssetAddressToWO)
+		self.uidriver.clickElement(PMDetail.singleWOAllAssets)
+		self.uidriver.clickElement(PMDetail.linkAssetAddressToWO)
 
 		sleep(2)
 
