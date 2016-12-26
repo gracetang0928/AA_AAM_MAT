@@ -130,6 +130,7 @@ class PartForm(BaseForm):
 
 		# Select Transfer To Location
 		if(transType=="TRANSFER") :
+			
 			transferSelectors = self.uidriver.findElementsInParentElement(PartForm.transferToLocation,PartForm.transLocationOptions)
 			self.uidriver.clickElementEntity(transferSelectors[2])
 			sleep(1)

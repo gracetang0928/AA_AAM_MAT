@@ -14,7 +14,7 @@ class  CostingTest(unittest.TestCase):
 
 
 	def setUp(self):
-		loginAndFindPortlet(self)
+		loginSystem(self)
 		self.dashBoard.accessAdmin()
 		
 	def tearDown(self):

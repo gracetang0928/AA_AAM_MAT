@@ -12,7 +12,7 @@ class  PMScheduleTest(unittest.TestCase):
 	wOTemplatePortlet = "name-woTemplate-admin"
 
 	def setUp(self):
-		loginAndFindPortlet(self)
+		loginSystem(self)
 		self.dashBoard.findPortlet("PM Schedules")
 	def tearDown(self):
 		endCase(self)
@@ -44,14 +44,12 @@ class  PMScheduleTest(unittest.TestCase):
 
 	def test_TC_PM_002_NewPM_MAT(self):
 		"""Create New PM Schedules"""
-		self.dashBoard.findPortlet("PM Schedules")
 		msgCreated = "The pm schedule created successfully."		
 		createRefData(self,PMListView,PMDetail,self.portlet,(newPMName,newWOTemplate),msgCreated)
 
 
 	def test_TC_PM_003_SearchAndUpdatePM_MAT(self):
 		"""Search and Update PM Schedules"""
-		self.dashBoard.findPortlet("PM Schedules")
 		msgUpdated = "The pm schedule updated successfully."
 		dataList = PMListView(self.uidriver,self.portlet)
 		searchAtListView(self,dataList,dataList.scheduleName,newPMName)
@@ -61,7 +59,6 @@ class  PMScheduleTest(unittest.TestCase):
 
 	def test_TC_PM_004_LinkAssetToPM_MAT(self):
 		"""Link Asset To The PM Schedules"""
-		self.dashBoard.findPortlet("PM Schedules")
 		msgAssociateAsset = "1 asset(s) added to the PM schedule successfully."
 		pmList = PMListView(self.uidriver,self.portlet)
 		searchAtListView(self,pmList,pmList.scheduleName,newPMName)
@@ -71,7 +68,6 @@ class  PMScheduleTest(unittest.TestCase):
 
 	def test_TC_PM_005_LinkAddressToPM_MAT(self):
 		"""Link Address To the PM Schedules"""
-		self.dashBoard.findPortlet("PM Schedules")
 		msgAssociateAddress = "1 selected records added successfully."
 		pmList = PMListView(self.uidriver,self.portlet)
 		searchAtListView(self,pmList,pmList.scheduleName,newPMName)
@@ -82,7 +78,6 @@ class  PMScheduleTest(unittest.TestCase):
 	# Generate Work Order by PM
 	def test_TC_PM_006_GeneratePMRecord_MAT(self):
 		"""Generate a WO by PM Schedules"""
-		self.dashBoard.findPortlet("PM Schedules")
 		pmList = PMListView(self.uidriver,self.portlet)
 		searchAtListView(self,pmList,pmList.scheduleName,newPMName)
 		pmList.selectFirstRecordInList()
@@ -112,13 +107,12 @@ class  PMScheduleTest(unittest.TestCase):
 
 	def test_TC_PM_007_DeletePM_MAT(self):
 		"""Delete a PM Schedules Record"""
-		self.dashBoard.findPortlet("PM Schedules")
 		deleteRefData(self,PMListView,self.portlet,PMForm)
 		
 if __name__=="__main__":
 
 
-	caseList = ("test_haha",)
+	caseList = ("test_TC_PM_002_NewPM_MAT",)
 	#"test_SearchAndUpdatePM_MAT","test_LinkAssetToPM_MAT","test_LinkAddressToPM_MAT","test_GeneratePMRecord_MAT",,"test_DeletePM_MAT"
 	testUnit = unittest.TestSuite()
 

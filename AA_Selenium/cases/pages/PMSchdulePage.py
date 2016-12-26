@@ -87,10 +87,10 @@ class PMForm(BaseForm):
 ##############################################################################################
 class PMDetail(BaseForm,PMDetailElements):
 
-	def updateDetail(self,commentData,woTemplate):
+	def updateDetail(self,commentData):
 		self.uidriver.setTextToElement(PMDetail.comments,"Update by auto "+commentData)
 
-	def inputDetailData(self,scheduleNameInfo):
+	def inputDetailData(self,scheduleNameInfo,woTemplate):
 		# Fill In Schedule Name
 		self.uidriver.setTextToElement(PMDetail.scheduleName,scheduleNameInfo)
 		# Select Template

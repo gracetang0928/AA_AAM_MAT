@@ -37,7 +37,7 @@ def getDateAfter(n):
 	return strf
 
 
-def loginAndFindPortlet(self):
+def loginSystem(self):
 	self.uidriver = UIDriver("Firefox")
 	self.baseUrl = siteInfo["site"]
 	self.uidriver.get(self.baseUrl)	
@@ -356,7 +356,7 @@ def deleteRefData(self,listViewClass,portlet,formClass):
 
 timeStr = generatNowStr()
 # Ref Asset ID
-newAssetID  = timeStr
+newAssetID  = timeStr[0:5]
 
 # Ref PM Schedule Name 
 newPMName = "NPM" + timeStr[-3:]

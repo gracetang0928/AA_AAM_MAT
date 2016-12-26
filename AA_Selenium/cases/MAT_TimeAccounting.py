@@ -13,7 +13,7 @@ class  TimeAccountingTest(unittest.TestCase):
 
 	
 	def setUp(self):
-		loginAndFindPortlet(self)
+		loginSystem(self)
 		self.dashBoard.accessAdmin()
 	def tearDown(self):
 		endCase(self)

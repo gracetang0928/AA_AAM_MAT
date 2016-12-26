@@ -12,8 +12,8 @@ class  PartTest(unittest.TestCase):
 	partLocationPortlet = "id-partLocation-admin"
 
 	def setUp(self):
-		loginAndFindPortlet(self)
-		
+		loginSystem(self)
+		self.dashBoard.findPortlet("Part Inventory")
 		
 	def tearDown(self):
 		endCase(self)
@@ -29,14 +29,13 @@ class  PartTest(unittest.TestCase):
 
 	def test_TC_Part_002_NewPart_MAT(self):
 		""" New Reference Part """
-		self.dashBoard.findPortlet("Part Inventory")
+		
 		msgCreated = "The part created successfully."		
 		createRefData(self,PartListView,PartDetail,self.portlet,(newPartID,),msgCreated)
 
 
 	def test_TC_Part_003_SearchAndUpdatePart_MAT(self):
 		""" Search and Update Part Record"""
-		self.dashBoard.findPortlet("Part Inventory")
 		msgUpdated = "The part updated successfully."
 		dataList = PartListView(self.uidriver,self.portlet)
 		searchAtListView(self,dataList,dataList.partNumber,newPartID)
@@ -44,9 +43,8 @@ class  PartTest(unittest.TestCase):
 
 
 	def addPartTransaction(self,transactionType,quantityInfo):
-		self.dashBoard.findPortlet("Part Inventory")
 		dataList = PartListView(self.uidriver,self.portlet)
-		searchAtListView(self,dataList,dataList.partNumber,"NPA234")#newPartID
+		searchAtListView(self,dataList,dataList.partNumber,newPartID)#newPartID
 		dataList = PartListView(self.uidriver,self.portlet)
 		dataList.selectFirstRecordInList()
 		form = PartForm(self.uidriver,self.portlet)
@@ -71,7 +69,6 @@ class  PartTest(unittest.TestCase):
 
 	def test_TC_Part_007_CheckSupply_MAT(self):
 		"""Check the Supply Of the Part"""
-		self.dashBoard.findPortlet("Part Inventory")
 		# Search the Part and access the form
 		dataList = PartListView(self.uidriver,self.portlet)
 		searchAtListView(self,dataList,dataList.partNumber,newPartID)
@@ -89,7 +86,6 @@ class  PartTest(unittest.TestCase):
 		
 	def test_TC_Part_008_DeletaPart_MAT(self):
 		"""Delete a Part From Inventory"""
-		self.dashBoard.findPortlet("Part Inventory")
 		deleteRefData(self,PartListView,self.portlet,PartForm)
 
 		

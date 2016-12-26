@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pages.Administration import SetUpPage,DataList,AttributeForm,AttributeTableForm,AttributeTemplateForm
 from pages.LoginPage import *
-from pages.AssetPage import *
+from pages.AssetsPage import *
 from pages.public import *
 from unittest import *
 import HTMLTestRunner
@@ -20,7 +20,7 @@ class  AssetManageTest(unittest.TestCase):
 
 
 	def setUp(self):
-		loginAndFindPortlet(self)
+		oginSystem(self)
 		self.dashBoard.findPortlet("Assets")
 	def tearDown(self):
 		endCase(self)
@@ -71,7 +71,7 @@ class  AssetManageTest(unittest.TestCase):
 	def test_TC_Assets_004_NewAsset_MAT(self):
 		"""New Reference Assets Record"""
 		msgCreated = "The Asset created successfully."		
-		createRefData(self,AssetsListView,AssetDetail,self.portlet,(newAssetID,),msgCreated)
+		createRefData(self,AssetsListView,AssetsDetail,self.portlet,(newAssetID,),msgCreated)
 	
 
 	def test_TC_Assets_005_SearchAndUpdateAsset_MAT(self):
@@ -79,7 +79,7 @@ class  AssetManageTest(unittest.TestCase):
 		msgUpdated = "The Asset updated successfully."
 		dataList = AssetsListView(self.uidriver,self.portlet)
 		searchAtListView(self,dataList,dataList.assetID,newAssetID)
-		updateRefData(self,AssetsListView,AssetDetail,self.portlet,(newAssetID,),msgUpdated)
+		updateRefData(self,AssetsListView,AssetsDetail,self.portlet,(newAssetID,),msgUpdated)
 
 
 	
@@ -91,7 +91,7 @@ class  AssetManageTest(unittest.TestCase):
 		dataList.selectFirstRecordInList()
 
 		# Wait for load over
-		detail = AssetDetail(self.uidriver,self.portlet)
+		detail = AssetsDetail(self.uidriver,self.portlet)
 		detail.uidriver.waitForElementPresent(detail.Detail,30)
 		self.assertIsNotNone(detail.uidriver.findElement(detail.Detail),msg="Error：Asset detail page didn't load. ")
 
@@ -115,14 +115,14 @@ class  AssetManageTest(unittest.TestCase):
 
 	def test_TC_Assets_007_DeleteAsset_MAT(self):
 		"""Delete Asset In The List View """
-		deleteRefData(self,AssetListView,self.portlet,AssetForm)
+		deleteRefData(self,AssetsListView,self.portlet,AssetForm)
 
 
 
 if __name__=="__main__":
 #	unittest.main()
 #################################################################################################################################	
-	caseList = ("test_NewAsset_MAT","test_SearchAndUpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT")
+	caseList = ("test_TC_Assets_004_NewAsset_MAT",)
  #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
 	testUnit = unittest.TestSuite()
 

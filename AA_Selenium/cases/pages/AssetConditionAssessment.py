@@ -20,16 +20,20 @@ class AssetCADetailElement(object):
 	"""
 	# Asset  Tab elements
 	Detail = (By.ID,"AssetDetail")
-
-	assetGroup = (By.ID,"value(g1AssetGroup)")
-	assetType = (By.ID,"value(g1AssetType)")
+	# New Asset CA Page
+	conditionAssessment = (By.ID,"value(conditionAssessment)")
+	# Search Asset Page
 	assetID = (By.ID,"value(g1AssetID)")
-	assetName = (By.NAME,"value(g1AssetName)")
-	assetComment = (By.NAME,"value(g1AssetComments)")
-	assetDesc = (By.ID,"value(g1Description)")
-	assetSize = (By.ID,"value(assetSize)")
-	groupSelect = (By.XPATH,"//option")
-	typeSelect = (By.XPATH,'//select[@id="value(g1AssetType)"]/option')
+	SubmitOfAsset = (By.ID,"submit4CA")
+	assetRadio = (By.NAME,"value(chk_asset)")
+	SelectOfAsset = (By.ID,"select4CA")
+
+	# Asset CA detail element
+	comments = (By.ID,"value(comments)")
+	currentUser = (By.LINK_TEXT,"Current User")
+	currentDepartment = (By.LINK_TEXT,"Current Department")
+	inspDate = (By.ID,"date(inspDate)")
+	SaveOfCA = (By.XPATH,'editSave')
 
 	
 

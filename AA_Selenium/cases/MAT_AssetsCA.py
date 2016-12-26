@@ -12,9 +12,12 @@ class  AssetCATest(unittest.TestCase):
 	"""
 	ratingTypePortlet = "name-ratingType-admin"
 	assetCAPortlet = "id-conditionAssessment-admin"
+	assetCARef = "id-assetCA"
 	
 	def setUp(self):
-		loginAndFindPortlet(self)
+		loginSystem(self)
+		self.dashBoard.findPortlet("Asset Condition Assessment")
+
 	def tearDown(self):
 		endCase(self)
 
@@ -47,6 +50,29 @@ class  AssetCATest(unittest.TestCase):
 		# Create Rating Type
 		createAdminData(self,admin,admin.Assets,admin.ratingType,DataList,self.ratingTypePortlet,
 			RatingTypeForm,self.ratingTypePortlet,(newRatingType,newAssetCA,newAttribute),msgCreated)#newAssetCA,newAttribute
+
+	def test_TC_AssetCA_003_NewRefAssetCA_MAT(self):
+		msg ="New asset condition assessment created successfully."
+		"The asset condition assessment updated successfully."
+		dataList = DataList(self.uidriver,self.assetCARef)
+		# Click the New button , Access the new Asset CA page 
+		dataList.click(dataList.New)
+
+		# Access the detal page , and wait for load over
+		detail = detailClass(self.uidriver,portletName)
+		detail.uidriver.waitForElementPresent(detail.Submit,30)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.Submit),msg="Error: %s detail page is still loading."%portletName)
+	 
+		# Input data , the click submit
+		detail.inputDetailData(*data)
+		detail.click(detail.Submit)
+
+		# Save the screen shot
+		detail.uidriver.saveScreenshot("..\\report\\image\\Create%s"%(portletName)+generatNowStr()+".png")
+		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),msgCreated,msg="Error: new %s failed."%portletName)
+
+		detail.closeEMSE()	
+
 
 
 if __name__=="__main__":
