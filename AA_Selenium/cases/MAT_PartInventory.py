@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-from pages.Administration import PartLocationForm,DataList,SetUpPage
-from pages.LoginPage import *
 from pages.Part import *
-from pages.public import *
-import unittest 
-import HTMLTestRunner
+from CaseTemplate import *
 
-class  PartTest(unittest.TestCase):
+class  MAT_PartInventory(unittest.TestCase):
 	"""Part Inventory Basic Function """
 	portlet = "id-part"
 	partLocationPortlet = "id-partLocation-admin"

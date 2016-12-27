@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from BasePage import *
+from public.BasePage import *
 
 class LoginPage(BasePage):
 	"""docstring for LoginPage"""

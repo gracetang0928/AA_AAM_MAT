@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-from pages.Administration import DataList,AssetCAForm,RatingTypeForm,SetUpPage
-from pages.LoginPage import *
-from pages.public import *
-from unittest import *
-import HTMLTestRunner
+from pages.AssetConditionAssessment import *
+from CaseTemplate import *
 
 
-class  AssetCATest(unittest.TestCase):
+class  MAT_AssetsCA(unittest.TestCase):
 	"""
 		Asset Condition Assessment Manager Basic Function
 	"""
@@ -52,43 +49,48 @@ class  AssetCATest(unittest.TestCase):
 			RatingTypeForm,self.ratingTypePortlet,(newRatingType,newAssetCA,newAttribute),msgCreated)#newAssetCA,newAttribute
 
 	def test_TC_AssetCA_003_NewRefAssetCA_MAT(self):
-		msg ="New asset condition assessment created successfully."
-		"The asset condition assessment updated successfully."
+		msgCreated ="New asset condition assessment created successfully."
+		
 		dataList = DataList(self.uidriver,self.assetCARef)
 		# Click the New button , Access the new Asset CA page 
 		dataList.click(dataList.New)
 
 		# Access the detal page , and wait for load over
-		detail = detailClass(self.uidriver,portletName)
+		detail = AssetCADetail(self.uidriver,self.assetCARef)
 		detail.uidriver.waitForElementPresent(detail.Submit,30)
-		self.assertIsNotNone(detail.uidriver.findElement(detail.Submit),msg="Error: %s detail page is still loading."%portletName)
-	 
+		self.assertIsNotNone(detail.uidriver.findElement(detail.Submit),msg="Error:Select condition Assessment page is still loading.")
+		# Select the condition assessment
+		detail.selectConditionAssessment(newAssetCA)#
+		detail.click(detail.Submit)
+
+		detail.uidriver.waitForElementPresent(detail.Reset,30)
+		self.assertIsNotNone(detail.uidriver.findElement(detail.Reset),msg="Error:Search asset page is still loading.")
+		# Search Asset ID
+		sleep(2)
+		detail.uidriver.setTextToElement(detail.assetID,newAssetID)#
+		detail.click(detail.SubmitOfAsset)
+		detail.uidriver.waitForElementPresent(detail.SelectOfAsset,30)
+		
+		detail.selectAssetInList()
+		detail.click(detail.SelectOfAsset)
+		detail.uidriver.waitForElementPresent(detail.Submit,30)
+
 		# Input data , the click submit
-		detail.inputDetailData(*data)
+		detail.inputDetailData()
 		detail.click(detail.Submit)
 
 		# Save the screen shot
-		detail.uidriver.saveScreenshot("..\\report\\image\\Create%s"%(portletName)+generatNowStr()+".png")
-		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),msgCreated,msg="Error: new %s failed."%portletName)
-
+		detail.uidriver.saveScreenshot("..\\report\\image\\Create%s"%(self.assetCARef)+generatNowStr()+".png")
+		self.assertEquals(detail.uidriver.getTextOfElement(detail.msg),msgCreated,msg="Error: new %s failed."%self.assetCARef)
 		detail.closeEMSE()	
 
+	def test_TC_AssetCA_004_SearchAndUpdateAssetCA_MAT(self):
+		"""Search and Update Reference Asset Condition Assessment Record"""
+		msgUpdated = "The asset condition assessment updated successfully."
+		dataList = AssetCAListView(self.uidriver,self.assetCARef)
+		searchAtListView(self,dataList,AssetCAListView.assetID2,newAssetID)#newAssetID
+		updateRefData(self,AssetCAListView,AssetCADetail,self.assetCARef,(newAssetID,),msgUpdated,(By.ID,'editSave'))
 
 
-if __name__=="__main__":
-#	unittest.main()
-#################################################################################################################################	
-	caseList = ("test_NewAsset_MAT","test_SearchAndUpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT")
- #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
-	testUnit = unittest.TestSuite()
 
-	for case in caseList:
-		testUnit.addTest(AssetCATest(case))
 
-	reportName = '..\\report\\Asset'+generatNowStr()+'.html'
-
-	fp = file(reportName,'wb')
-
-	runner = HTMLTestRunner.HTMLTestRunner(stream=fp , title = "Asset MAT Test Results" , description = "Case Execute Results")
-
-	runner.run(testUnit)

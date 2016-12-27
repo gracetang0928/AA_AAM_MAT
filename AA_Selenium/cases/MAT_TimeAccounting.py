@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-from pages.LoginPage import *
-from pages.Administration import *
-from pages.public import *
-import unittest 
-import HTMLTestRunner
+from CaseTemplate import *
 
-class  TimeAccountingTest(unittest.TestCase):
+class  MAT_TimeAccounting(unittest.TestCase):
 	"""Time Accounting Function """
 
 	timeGroupPortlet = "name-timeGroup-admin"
@@ -34,21 +30,3 @@ class  TimeAccountingTest(unittest.TestCase):
 		createAdminData(self,admin,admin.TimeAccounting,admin.timeType,DataList,self.timeTypePortlet,
 			TimeTypeForm,self.timeTypePortlet,(newTimeType,newTimeGroup),msgCreated)
 
-
-
-if __name__=="__main__":
-
-	caseList = ("test_TC_TimeAccount_001_NewTimeGroupInAdmin_MAT","test_TC_TimeAccount_002_NewTimeTypeInAdmin_MAT")
-	#"test_NewAttribute_MAT","test_NewAttributeTable_MAT","test_NewAttributeTemplate_MAT"
-	testUnit = unittest.TestSuite()
-
-	for case in caseList:
-		testUnit.addTest(TimeAccountingTest(case))
-
-	reportName = '..\\report\\AssetAdmin'+generatNowStr()+'.html'
-
-	fp = file(reportName,'wb')
-
-	runner = HTMLTestRunner.HTMLTestRunner(stream=fp , title = "Asset Admin MAT Test Results" , description = "Case Execute Results")
-
-	runner.run(testUnit)

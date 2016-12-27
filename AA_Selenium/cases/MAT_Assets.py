@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
-from pages.Administration import SetUpPage,DataList,AttributeForm,AttributeTableForm,AttributeTemplateForm
-from pages.LoginPage import *
 from pages.AssetsPage import *
-from pages.public import *
-from unittest import *
-import HTMLTestRunner
+from CaseTemplate import *
 
-
-class  AssetManageTest(unittest.TestCase):
+class  MAT_Assets(unittest.TestCase):
 	"""
 		Asset Manager Basic Function
 	"""
@@ -20,7 +15,7 @@ class  AssetManageTest(unittest.TestCase):
 
 
 	def setUp(self):
-		oginSystem(self)
+		loginSystem(self)
 		self.dashBoard.findPortlet("Assets")
 	def tearDown(self):
 		endCase(self)
@@ -34,6 +29,8 @@ class  AssetManageTest(unittest.TestCase):
 		msg = "The attribute created successfully."
 		createAdminData(self,admin,admin.Assets,admin.attribute,DataList,self.attributePortlet,
 			AttributeForm,self.attributePortlet,("Number",newAttribute),msg)
+
+
 
 	def test_TC_Assets_002_NewAttributeTableInAdmin_MAT(self):
 		"""New Asset Attribute Table in Admin"""
@@ -113,26 +110,35 @@ class  AssetManageTest(unittest.TestCase):
 		detail.click(detail.Complete)
 
 
+
 	def test_TC_Assets_007_DeleteAsset_MAT(self):
 		"""Delete Asset In The List View """
-		deleteRefData(self,AssetsListView,self.portlet,AssetForm)
+		dataList = AssetsListView(self.uidriver,self.portlet)
+		dataList.checkAssetRecord(1)
 
+		form = AssetsForm(self.uidriver,self.portlet)
+		form.click(form.backArrow)
+
+		dataList = AssetsListView(self.uidriver,self.portlet)
+		dataList.uidriver.waitForElementPresent(dataList.Delete,20)
+		dataList.click(dataList.Delete)
+
+		dataList.uidriver.saveScreenshot("..\\report\\image\\DeleteAsset"+generatNowStr()+".png")
+		deleteMsg = dataList.uidriver.getTextOfElement(dataList.msg)
+		self.assertEquals(deleteMsg,"1 record(s) deleted successfully.",msg = "Error: Delete Asset data failed. ")
+	#	deleteRefData(self,AssetsListView,self.portlet,AssetsForm)
 
 
 if __name__=="__main__":
 #	unittest.main()
 #################################################################################################################################	
-	caseList = ("test_TC_Assets_004_NewAsset_MAT",)
+	caseList = ("test_TC_Assets_007_DeleteAsset_MAT",)
  #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
 	testUnit = unittest.TestSuite()
 
 	for case in caseList:
-		testUnit.addTest(AssetManageTest(case))
+		testUnit.addTest(MAT_Assets(case))
 
-	reportName = '..\\report\\Asset'+generatNowStr()+'.html'
-
-	fp = file(reportName,'wb')
-
-	runner = HTMLTestRunner.HTMLTestRunner(stream=fp , title = "Asset MAT Test Results" , description = "Case Execute Results")
+	runner = unittest.TextTestRunner()
 
 	runner.run(testUnit)

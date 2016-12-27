@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
-from BasePage import *
+from public.BasePage import *
+
 ##############################################################################
 # Assets portlet related pages class , include :
 # AssetDetailElement
@@ -19,9 +20,10 @@ class AssetCADetailElement(object):
 	Asset detail main elements set
 	"""
 	# Asset  Tab elements
-	Detail = (By.ID,"AssetDetail")
+	Detail = (By.ID,"Detail")
 	# New Asset CA Page
 	conditionAssessment = (By.ID,"value(conditionAssessment)")
+	caoption = (By.XPATH,'//option') # select[@id="value(conditionAssessment)"]
 	# Search Asset Page
 	assetID = (By.ID,"value(g1AssetID)")
 	SubmitOfAsset = (By.ID,"submit4CA")
@@ -33,31 +35,22 @@ class AssetCADetailElement(object):
 	currentUser = (By.LINK_TEXT,"Current User")
 	currentDepartment = (By.LINK_TEXT,"Current Department")
 	inspDate = (By.ID,"date(inspDate)")
-	SaveOfCA = (By.XPATH,'editSave')
+	inspTime = (By.ID,"EBAComboBoxTextinspTime")
+	SaveOfCA = (By.ID,'editSave')
 
-	
-
-
-##############################################################################
-# Asset list view page elements set
-##############################################################################
-class AssetListView(BaseListView,AssetDetailElement):
-
-	ViewLog = (By.ID,"a_conditionLog")
-	NewWO = (By.ID,"a_addWOFromAssetList")
-
-	
-	def checkAssetRecord(self,lineNumber):
-		data = self.uidriver.findElementInParentElement((By.ID,"row%d"%lineNumber),(By.XPATH, '//input[@name="value(chk_asset,%d)"]'%lineNumber))
-		self.uidriver.clickElementEntity(data)
+	# List View search Asset ID 
+	assetID2 = (By.ID,"value(assetID)")
 
 
 
+
+class AssetCAListView(BaseListView,AssetCADetailElement):
+	pass
 ##############################################################################
 # Asset new page class
 # Also Asset detail page 
 ##############################################################################
-class AssetDetail(BaseForm,AssetDetailElement):
+class AssetCADetail(BaseForm,AssetCADetailElement):
 
 	# Elements in the asset detail tab page
 	
@@ -67,38 +60,33 @@ class AssetDetail(BaseForm,AssetDetailElement):
 	cloneAssetIDPrefix = (By.ID,"value(assetidPrefix)")
 	cloneAssetNO = (By.ID,"value(cloneNumber)")
 	SubmitOfClone= (By.ID,"clone")
-	Complete = (By.ID,"CloneComplete")
 
+	def selectConditionAssessment(self,caInfo):#
+		#self.uidriver.clickElement(AssetCADetail.conditionAssessment)
+		sleep(1)
+		CAselectors = self.uidriver.findElementsInParentElement(AssetCADetail.conditionAssessment,AssetCADetail.caoption)
 
-	def inputDetailData(self,assetIDInfo):
-		self.uidriver.waitForElementClickable(AssetDetail.assetGroup,30)
-		# Select asset group
-		groupSelectors = self.uidriver.findElementsInParentElement(AssetDetail.assetGroup,AssetDetail.groupSelect)
-		self.uidriver.clickElementEntity(groupSelectors[1])
-		sleep(5)
-		self.uidriver.waitForElementClickable(AssetDetail.assetType,30)
-		sleep(3)
-		# Select asset type
-		typeSelectors = self.uidriver.findElementsInParentElement(AssetDetail.assetType,AssetDetail.typeSelect)
-		self.uidriver.clickElementEntity(typeSelectors[1])
-		sleep(5)
-		self.uidriver.waitForElementClickable(AssetDetail.assetID,30)
-		# Generate a random number string to fill asset ID
-		sleep(3)
-		self.uidriver.setTextToElement(AssetDetail.assetID,assetIDInfo)
-		self.uidriver.setTextToElement(AssetDetail.assetName,"T"+assetIDInfo)
-		self.uidriver.setTextToElement(AssetDetail.assetComment,"this is test by grace auto "+ assetIDInfo)
-		self.uidriver.setTextToElement(AssetDetail.assetSize,assetIDInfo[5:7])
-
+		for select in CAselectors:
+			if select.get_attribute("value") ==caInfo:
+				self.uidriver.clickElementEntity(select)
+				break
 		sleep(2)
+	
+	def inputDetailData(self):
 
-	def updateDetail(self,updateInfo):
+		self.uidriver.clickElement(AssetCADetail.currentUser)
+		sleep(1)
+		self.uidriver.setTextToElement(AssetCADetail.inspDate,getDateAfter(1))
+		self.uidriver.setTextToElement(AssetCADetail.inspTime,"01:00 AM")
+
+	def selectAssetInList(self):
+		radio = self.uidriver.findElementInParentElement((By.ID,"row1"),(By.ID,"ac360_list_id"))
+		self.uidriver.clickElementEntity(radio)
+
+	def updateDetail(self,dataInfo):
 		sleep(2)
-		self.uidriver.setTextToElement(AssetDetail.assetDesc,updateInfo+" Update By Auto")
+		self.uidriver.setTextToElement(AssetCADetail.comments,getDateAfter(0)+" Update By Auto "+dataInfo)
 
-	def inputCloneData(self,assetIDPrefixInfo,cloneNumberInfo):
-		self.uidriver.setTextToElement(AssetDetail.cloneAssetIDPrefix,assetIDPrefixInfo)
-		self.uidriver.setTextToElement(AssetDetail.cloneAssetNO,cloneNumberInfo)
 
 class AssetForm(BaseForm):
 	# Tab Elements

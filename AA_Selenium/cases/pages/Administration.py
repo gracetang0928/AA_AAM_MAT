@@ -1,7 +1,5 @@
 #-*- coding: utf-8 -*-
-from BasePage import *
-from public import getDateAfter
-
+from public.BasePage import *
 
 class SetUpPage(BasePage):
 	setUpFrame = (By.ID,"setup")
@@ -64,7 +62,7 @@ class AttributeForm(BaseForm):
 			if select.get_attribute("value")==dataType :
 				self.uidriver.clickElementEntity(select)
 				break
-		sleep(1)
+		sleep(5)
 
 		# Input Attribute Name and Label
 		self.uidriver.setTextToElement(AttributeForm.attributeName,attributeName)

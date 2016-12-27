@@ -1,6 +1,4 @@
-from BasePage import *
-from public import getDateAfter
-
+from public.BasePage import *
 
 class PMDetailElements(object):
 	"""

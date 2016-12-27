@@ -1,4 +1,4 @@
-from BasePage import *
+from public.BasePage import *
 
 class PartDetailElements(BaseElements):
 	"""

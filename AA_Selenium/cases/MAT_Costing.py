@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-from pages.Administration import DataList,CostGroupForm,CostItemForm,SetUpPage
-from pages.LoginPage import *
-from pages.public import *
-import unittest 
-import HTMLTestRunner
+from CaseTemplate import *
 
-
-class  CostingTest(unittest.TestCase):
+class  MAT_Costing(unittest.TestCase):
 	"""Costing Basic Function """
 
 	costGroupPortlet = "name-costGroup-admin"
