@@ -4,4 +4,4 @@ Method name: 第一个单词小写，从第二个单词起，每个首字母大�
 Filed name: 第一个单词小写，从第二个单词起，每个首字母大写
 Tab name :与系统的实际的名字一样,若有重复，则视情况而定
 
-"Add more test case"
+"Add  test case"
