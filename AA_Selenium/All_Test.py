@@ -3,6 +3,7 @@ import unittest
 import HTMLTestRunner
 import os,datetime
 
+# creat MAT test suite
 
 casesDir = ".\\cases"
 
