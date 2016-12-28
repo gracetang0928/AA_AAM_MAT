@@ -1,0 +1,1187 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tex",
+				"TextTestRunner	class"
+			],
+			[
+				"cre",
+				"createSuite	function"
+			],
+			[
+				"add",
+				"addTests	function"
+			],
+			[
+				"pa",
+				"pattern	param"
+			],
+			[
+				"Tes",
+				"TestSuite	class"
+			],
+			[
+				"sel",
+				"self"
+			],
+			[
+				"in",
+				"InfoSet	module"
+			],
+			[
+				"ca",
+				"CAselectors	statement"
+			],
+			[
+				"ass",
+				"AssetConditionAssessment	module"
+			],
+			[
+				"A",
+				"Assessment"
+			],
+			[
+				"Con",
+				"Condition"
+			],
+			[
+				"su",
+				"Submit"
+			],
+			[
+				"wait",
+				"waitForElementPresent"
+			],
+			[
+				"cl",
+				"clickElementEntity"
+			],
+			[
+				"Asse",
+				"Assessment"
+			],
+			[
+				"se",
+				"self"
+			],
+			[
+				"set",
+				"setTextToElement"
+			],
+			[
+				"test",
+				"testUnit	statement"
+			],
+			[
+				"Text",
+				"TextTestRunner	class"
+			],
+			[
+				"ma",
+				"makeSuite	function"
+			],
+			[
+				"time",
+				"TimeAccountingTest	class"
+			],
+			[
+				"mat",
+				"MAT_TimeAccounting	module"
+			],
+			[
+				"pm",
+				"PMScheduleTest	class"
+			],
+			[
+				"co",
+				"CostingTest	class"
+			],
+			[
+				"asset",
+				"AssetCATest	class"
+			],
+			[
+				"S",
+				"Schedules"
+			],
+			[
+				"sCHE",
+				"Schedules"
+			],
+			[
+				"sche",
+				"Schedules"
+			],
+			[
+				"a",
+				"AttributeTemplateForm	class"
+			],
+			[
+				"da",
+				"DataList	class"
+			],
+			[
+				"s",
+				"SetUpPage	class"
+			],
+			[
+				"cos",
+				"CostGroupForm	class"
+			],
+			[
+				"Condition",
+				"conditionAssessment"
+			],
+			[
+				"Bs",
+				"BaseForm	class"
+			],
+			[
+				"uni",
+				"unittest	module"
+			],
+			[
+				"P",
+				"PartInventory	module"
+			],
+			[
+				"par",
+				"partLocation	statement"
+			],
+			[
+				"fin",
+				"findElement"
+			],
+			[
+				"bY",
+				"By	class"
+			],
+			[
+				"cli",
+				"clickElement"
+			],
+			[
+				"typ",
+				"typeName	param"
+			],
+			[
+				"SL",
+				"select"
+			],
+			[
+				"Bas",
+				"BaseForm	class"
+			],
+			[
+				"Sel",
+				"SelectOfAttribute"
+			],
+			[
+				"Newco",
+				"newCostItem	statement"
+			],
+			[
+				"msg",
+				"msgAssign	statement"
+			],
+			[
+				"for",
+				"form	statement"
+			],
+			[
+				"assertEqu",
+				"assertEquals	statement"
+			],
+			[
+				"newP",
+				"newPartID	statement"
+			],
+			[
+				"fo",
+				"form"
+			],
+			[
+				"lis",
+				"listViewClass"
+			],
+			[
+				"newAsset",
+				"newAssetID	statement"
+			],
+			[
+				"Up",
+				"Update"
+			],
+			[
+				"po",
+				"portletName	param"
+			],
+			[
+				"wai",
+				"waitForElementPresent"
+			],
+			[
+				"l",
+				"LookUp"
+			],
+			[
+				"Loo",
+				"LookUp"
+			],
+			[
+				"L",
+				"LookUp"
+			],
+			[
+				"attr",
+				"attributeName"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"Admin",
+				"administration"
+			],
+			[
+				"Tab",
+				"Table"
+			],
+			[
+				"si",
+				"siteInfo"
+			],
+			[
+				"ro",
+				"rows"
+			],
+			[
+				"csv",
+				"csvfile"
+			],
+			[
+				"cas",
+				"caselist"
+			],
+			[
+				"de",
+				"detail"
+			],
+			[
+				"new",
+				"newAssetID"
+			],
+			[
+				"f",
+				"from"
+			],
+			[
+				"Sle",
+				"Select"
+			],
+			[
+				"asser",
+				"assertIsNotNone"
+			],
+			[
+				"switch",
+				"switchToAlert"
+			],
+			[
+				"swit",
+				"switch"
+			],
+			[
+				"elem",
+				"elementInfo"
+			],
+			[
+				"ui",
+				"uidriver"
+			],
+			[
+				"st",
+				"strftime"
+			],
+			[
+				"no",
+				"nowDay"
+			],
+			[
+				"ge",
+				"generatePMButton"
+			],
+			[
+				"now",
+				"nowTime"
+			],
+			[
+				"assertI",
+				"assertIsNotNone"
+			],
+			[
+				"sub",
+				"submitOfAssetButton"
+			],
+			[
+				"w",
+				"waitForElementPresent"
+			],
+			[
+				"PM",
+				"PMScheduleTest"
+			],
+			[
+				"line",
+				"linePath"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"port",
+				"portlet"
+			],
+			[
+				"assetId",
+				"assetIDInfo"
+			],
+			[
+				"ch",
+				"childElements"
+			],
+			[
+				"UI",
+				"UIDriver"
+			],
+			[
+				"li",
+				"listView"
+			],
+			[
+				"web",
+				"WebDriverWait"
+			],
+			[
+				"B",
+				"BasePage"
+			],
+			[
+				"re",
+				"reportName"
+			],
+			[
+				"asse",
+				"assetDetailTab"
+			],
+			[
+				"assert",
+				"assertEquals"
+			],
+			[
+				"clic",
+				"clickSubmit"
+			],
+			[
+				"fi",
+				"fillInCloneData"
+			],
+			[
+				"ms",
+				"msg"
+			],
+			[
+				"sle",
+				"selectAssetDetailTab"
+			],
+			[
+				"after",
+				"afterAssetIDText"
+			],
+			[
+				"get",
+				"getTextOfElementEntity"
+			],
+			[
+				"find",
+				"find"
+			],
+			[
+				"clo",
+				"cloneMsgText"
+			],
+			[
+				"id",
+				"ID"
+			],
+			[
+				"af",
+				"afterAssetIDText"
+			],
+			[
+				"del",
+				"deleteData"
+			],
+			[
+				"b",
+				"beforeAssetIDText"
+			],
+			[
+				"chec",
+				"checkElementIsShown"
+			],
+			[
+				"cle",
+				"clickElementEntity"
+			],
+			[
+				"la",
+				"launchpadElement"
+			],
+			[
+				"d",
+				"dashboard"
+			],
+			[
+				"click",
+				"clickElement"
+			],
+			[
+				"uidriv",
+				"uidriver"
+			],
+			[
+				"ke",
+				"Keys"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"lo",
+				"loginTitle"
+			],
+			[
+				"sw",
+				"swith_to_iframe"
+			],
+			[
+				"win",
+				"window"
+			],
+			[
+				"text",
+				"textInfo"
+			],
+			[
+				"_",
+				"_driver"
+			],
+			[
+				"con",
+				"controlInfo"
+			],
+			[
+				"Login",
+				"LoginPage"
+			],
+			[
+				"han",
+				"handlocal"
+			],
+			[
+				"im",
+				"implicitly_wait"
+			],
+			[
+				"c",
+				"click"
+			],
+			[
+				"data",
+				"dataform"
+			],
+			[
+				"N",
+				"NewAssetsPage"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "AA_Selenium/All_Test.py",
+			"settings":
+			{
+				"buffer_size": 675,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/MAT_Assets.py",
+			"settings":
+			{
+				"buffer_size": 5882,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/readMe.txt",
+			"settings":
+			{
+				"buffer_size": 187,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/grace.tang/Desktop/TMP/temp.py",
+			"settings":
+			{
+				"buffer_size": 910,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/pages/Administration.py",
+			"settings":
+			{
+				"buffer_size": 14536,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/pages/AssetsPage.py",
+			"settings":
+			{
+				"buffer_size": 3735,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/pages/public/BasePage.py",
+			"settings":
+			{
+				"buffer_size": 5799,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/CaseTemplate.py",
+			"settings":
+			{
+				"buffer_size": 12354,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "AA_Selenium/cases/pages/public/UIDriver.py",
+			"settings":
+			{
+				"buffer_size": 9963,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_TimeAccounting.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_PartInventory.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_PMSchedule.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_Costing.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_AssetsCA.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_Assets.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/__init__.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/Administration.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MAT_Admin.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/PMSchdulePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/Part.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/LoginPage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/AssetsPage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/AssetConditionAssessment.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/CaseTemplate.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/public/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/InfoSet.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/public/Method.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/MyUnitCase.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/public/public.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/public/LoginPage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/All_Test.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/All_Test.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/data/UserInfo.csv",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/UIDriver.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/public.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/mainTestRun.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/readMe.txt",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/AuctionWebTest/.settings/org.eclipse.core.resources.prefs",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/auction/src/org/crazyit/auction/web/AuthImg.java",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/readme.txt",
+		"/C/Users/grace.tang/Desktop/hyhy.py",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/auction/src/org/crazyit/auction/dao/KindDao.java",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/auction/src/org/crazyit/auction/schedule/CheckWiner.java",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/auction/src/org/crazyit/auction/service/AuctionManager.java",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/auction/src/org/crazyit/auction/web/RandomValidateCode.java",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/AuctionWebTest/src/config/db_mysql.properties",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/AuctionWebTest/src/config/db.properties",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/AuctionWebTest/lib/Access_JDBC30.jar",
+		"/C/Users/grace.tang/Desktop/光荣之路K神Selenium自动化测试框架开源代码/AuctionWebTest/.settings/org.eclipse.jdt.core.prefs",
+		"/C/Users/grace.tang/Desktop/Untitled 1.py",
+		"/C/Users/grace.tang/Desktop/tmpTest.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/Admin.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/PMSchedule.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/Costing.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/data/site.txt",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/AssetsCA.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/Assets.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/PartInventory.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/pages/AssetPage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/TC_01_Asset Manage_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/TC_02_PM Schedule_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/TC_03_Part Inventory_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/TC_04_Asset Admin_MAT.py",
+		"/C/Users/grace.tang/Desktop/TMP/temp/out.html",
+		"/C/Users/grace.tang/Desktop/TMP/temp/UI_ECtest.py",
+		"/F/AA_Selenium/cases/TC_01_Asset Manage_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/report/Part1222143508.html",
+		"/F/AA_Selenium/cases/pages/BasePage.py",
+		"/C/Users/grace.tang/AppData/Roaming/Sublime Text 2/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/C/Users/grace.tang/Desktop/TMP/temp/in.html",
+		"/C/Users/grace.tang/Desktop/Note/selenium2 python自动化测试.pdf",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/report/AssetAdmin1220112328.html",
+		"/C/Users/grace.tang/Desktop/hosts",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/cases/TC_03_PartInventory_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AA_Selenium/data/readData.py",
+		"/C/Users/grace.tang/Desktop/ps/temp/ECtest.py",
+		"/C/Users/grace.tang/Desktop/ps/temp/Test.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/UIDriver.py",
+		"/C/Users/grace.tang/Desktop/ps/six/uihelper/helloworld.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/public.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/AssetPage.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/PMSchdulePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/TC_02_PM Schedule_MAT.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/TC_01_Asset Manage_MAT.py",
+		"/C/Users/grace.tang/Desktop/tmpTest",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/LoginPage.py",
+		"/C/Users/grace.tang/Desktop/ps/temp.py",
+		"/C/Users/grace.tang/Desktop/ps/temp/h.html",
+		"/C/Users/grace.tang/Desktop/ps/temp/UI_ECtest.py",
+		"/C/Users/grace.tang/Desktop/ps/temp/UIDriver.py",
+		"/C/Users/grace.tang/Desktop/ps/temp/testoption.py",
+		"/C/Python27/Lib/os.py",
+		"/C/Users/grace.tang/Desktop/ps/test_HTMLTestRunner.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/temp.txt",
+		"/C/Users/grace.tang/Desktop/ps/HTMLTestRunner.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/TC_02_assetManage.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/TC_01_loginSystem.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/Temp",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/LoginAA.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/TC_02_findPortlet.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/UIDriver - test.py",
+		"/C/Users/grace.tang/Desktop/ps/six/uihelper/uiHelper.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/UIHelper.py",
+		"/C/Users/grace.tang/Desktop/ps/PHP_Automation/baselib/mydriver.py",
+		"/C/Users/grace.tang/Desktop/ps/six/helloworld/helloworld.py",
+		"/C/Users/grace.tang/Desktop/ps/six/helloworld/readme.txt",
+		"/C/Users/grace.tang/Desktop/123.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/pages/DashBoard.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/public.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/cases/public/public.py",
+		"/C/Users/grace.tang/Desktop/ps/AAversionPage/mainTestRun.py",
+		"/C/Users/grace.tang/Desktop/ps/seleniumAA/TestCase/Public/LogIn_System.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/cases/LoginAA.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/cases/pages/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/mainTestRun.py",
+		"/C/Users/grace.tang/Desktop/ps/php/cases/pages/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/php/mainTestRun.py",
+		"/C/Users/grace.tang/Desktop/ps/php/cases/login.py",
+		"/C/Users/grace.tang/Desktop/ps/php/login.py",
+		"/C/Users/grace.tang/Desktop/ps/php/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/PHP_Automation/PHPwind_login.py",
+		"/C/Users/grace.tang/Desktop/ps/php/IndexPage.py",
+		"/C/Users/grace.tang/Desktop/ps/PHP_Automation/pages/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/IndexPage.py",
+		"/C/Users/grace.tang/Desktop/ps/php/IndexPage.pyc",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/login.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/LoginAA.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/BasePage/BasePage.py",
+		"/C/Users/grace.tang/Desktop/ps/AA versionPage/BasePage/BasePage.pyc",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/pages/IndexPage.py",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/cases/login.py",
+		"/C/Users/grace.tang/Desktop/ps/FW_AA/main.py",
+		"/C/Users/grace.tang/Desktop/htht",
+		"/C/Users/grace.tang/Desktop/ps/seleniumAA/TestCase/Public/Find_Portlet.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"delete",
+			"wo",
+			"AssetDetail",
+			"AssetDe",
+			"generatNowStr",
+			"associatedRecordToPortlet",
+			"self",
+			"form",
+			"PMFormPage",
+			"PMDetailPage",
+			"PMListViewPage",
+			"AssetFormPage",
+			"AssetDetailPage",
+			"PMDetailPage",
+			"PartDetailPage",
+			"PartFormPage",
+			"AssetDetailPage",
+			"paListViewPage",
+			"PMDetailPage",
+			"pmList",
+			"dedaulet",
+			"fillIn",
+			"waitforelement",
+			"dir",
+			"findelem",
+			"findele",
+			"parent",
+			"PARENT",
+			"groupSelect",
+			"typeSelect",
+			"getOptionOfParentElement",
+			"typese",
+			"waitFor",
+			"open",
+			"waitfore",
+			"waitfor",
+			"):\n",
+			"RecordsInLis",
+			"msg",
+			"3",
+			"text",
+			"checkElementIsShown",
+			"wait",
+			"show",
+			"frame",
+			"switchTo",
+			"checkElementIsShown",
+			"waitForElementNotPresent",
+			"click",
+			"find",
+			"text",
+			"setTextToElement",
+			"elementInfo",
+			"paren",
+			"check",
+			"findElement",
+			"find",
+			"clear",
+			"switchToIframe",
+			"text",
+			"paren",
+			"checkElementIsShown",
+			"text",
+			"screen",
+			"assetdetail",
+			"isElementPresent",
+			"search",
+			"isele",
+			"base"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"AssetsDetail",
+			"associatedDataByLookUp",
+			"form",
+			"selform",
+			"self",
+			"PMForm",
+			"PMDetail",
+			"PMListView",
+			"AssetForm",
+			"AssetDetail",
+			"PMDetail",
+			"PartDetail",
+			"PartForm",
+			"AssetDetail",
+			"PartListViewPage",
+			"PartDetailPage",
+			"paList"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "AA_Selenium/All_Test.py",
+					"settings":
+					{
+						"buffer_size": 675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								372,
+								372
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "AA_Selenium/cases/MAT_Assets.py",
+					"settings":
+					{
+						"buffer_size": 5882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5860,
+								5860
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1845.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "AA_Selenium/readMe.txt",
+					"settings":
+					{
+						"buffer_size": 187,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/grace.tang/Desktop/TMP/temp.py",
+					"settings":
+					{
+						"buffer_size": 910,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								903,
+								903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "AA_Selenium/cases/pages/Administration.py",
+					"settings":
+					{
+						"buffer_size": 14536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1757,
+								1757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "AA_Selenium/cases/pages/AssetsPage.py",
+					"settings":
+					{
+						"buffer_size": 3735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1071,
+								1071
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "AA_Selenium/cases/pages/public/BasePage.py",
+					"settings":
+					{
+						"buffer_size": 5799,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5553,
+								5599
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2610.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "AA_Selenium/cases/CaseTemplate.py",
+					"settings":
+					{
+						"buffer_size": 12354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								501,
+								501
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "AA_Selenium/cases/pages/public/UIDriver.py",
+					"settings":
+					{
+						"buffer_size": 9963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 234.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 258.0,
+	"status_bar_visible": true
+}
