@@ -116,11 +116,11 @@ class  MAT_Assets(unittest.TestCase):
 		dataList = AssetsListView(self.uidriver,self.portlet)
 		dataList.checkAssetRecord(1)
 
-		form = AssetsForm(self.uidriver,self.portlet)
-		form.click(form.backArrow)
+#		form = AssetsForm(self.uidriver,self.portlet)
+#		form.click(form.backArrow)
 
-		dataList = AssetsListView(self.uidriver,self.portlet)
-		dataList.uidriver.waitForElementPresent(dataList.Delete,20)
+#		dataList = AssetsListView(self.uidriver,self.portlet)
+#		dataList.uidriver.waitForElementPresent(dataList.Delete,20)
 		dataList.click(dataList.Delete)
 
 		dataList.uidriver.saveScreenshot("..\\report\\image\\DeleteAsset"+generatNowStr()+".png")
@@ -132,7 +132,7 @@ class  MAT_Assets(unittest.TestCase):
 if __name__=="__main__":
 #	unittest.main()
 #################################################################################################################################	
-	caseList = ("test_TC_Assets_007_DeleteAsset_MAT",)
+	caseList = ("test_pp",)
  #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
 	testUnit = unittest.TestSuite()
 

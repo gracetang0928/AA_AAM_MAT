@@ -1,7 +1,9 @@
 site,agency,username,password,WOtype
-https://aa-nft001.dev.accela.com:25443,LEXKY,tang,tang
-https://vm-server28.missionsky.com:24443,chesapeake,tang,tang,AMS/AAM641/AAM641/AAM641
+https://aa-nft001.dev.accela.com:5443,BPTDEV,GRACE,HAO123
 https://av.test.accela.com,qa,tang,tang
+https://aa-nft001.dev.accela.com:15443,seattle,admin,admin
+https://vm-server28.missionsky.com:24443,chesapeake,tang,tang,AMS/AAM641/AAM641/AAM641
+https://aa-nft001.dev.accela.com:25443,LEXKY,tang,tang
 https://pc-server1.missionsky.com:15443,ADMA,admin,admin
 
 

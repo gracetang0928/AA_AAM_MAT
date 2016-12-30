@@ -90,7 +90,7 @@ class Dashboard(BasePage):
 		self.uidriver.switchToDefaultContent()
 		sleep(3)
 		self.uidriver.clickElement(Dashboard.toggle)
-		sleep(3)
+		sleep(5)
 		signOut = self.uidriver.findElementInParentElement(Dashboard.dropdownMenuUl,Dashboard.signOutLink)
 		self.uidriver.clickElementEntity(signOut)
 		self.uidriver.waitForElementPresent(Dashboard.loginBoxDiv,5)

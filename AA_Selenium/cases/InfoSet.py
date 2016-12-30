@@ -21,7 +21,8 @@ siteInfo=getSiteInfo()
 
 timeStr = generatNowStr()
 # Ref Asset ID
-newAssetID  = timeStr[0:5]
+newAssetID  = timeStr[3:10]
+print newAssetID
 
 # Ref PM Schedule Name 
 newPMName = "NPM" + timeStr[-3:]

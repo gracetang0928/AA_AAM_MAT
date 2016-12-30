@@ -83,7 +83,8 @@ class AssetsDetail(BaseForm,AssetsDetailElement):
 		self.uidriver.setTextToElement(AssetsDetail.assetID,assetIDInfo)
 		self.uidriver.setTextToElement(AssetsDetail.assetName,"T"+assetIDInfo)
 		self.uidriver.setTextToElement(AssetsDetail.assetComment,"this is test by grace auto "+ assetIDInfo)
-		self.uidriver.setTextToElement(AssetsDetail.assetSize,assetIDInfo[5:7])
+		if self.uidriver.findElement(AssetsDetail.assetSize):
+			self.uidriver.setTextToElement(AssetsDetail.assetSize,assetIDInfo[5:7])
 
 		sleep(2)
 
