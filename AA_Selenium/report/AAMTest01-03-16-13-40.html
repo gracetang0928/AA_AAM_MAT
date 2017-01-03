@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>AAM MAT Test Results</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-12-28 16:00:05</p>
-<p class='attribute'><strong>Duration:</strong> 0:02:58.640000</p>
-<p class='attribute'><strong>Status:</strong> Error 2</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-01-03 16:13:40</p>
+<p class='attribute'><strong>Duration:</strong> 0:02:19.402000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
 
 <p class='description'>Case Execute Results</p>
 </div>
@@ -221,51 +221,34 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>MAT_TimeAccounting.MAT_TimeAccounting: Time Accounting Function </td>
+<tr class='passClass'>
+    <td>cases.MAT_Assets.MAT_Assets</td>
+    <td>2</td>
     <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>2</td>
     <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_TC_TimeAccount_001_NewTimeGroupInAdmin_MAT: Create Time Group In Admin</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_TC_Assets_001_NewAttributeInAdmin_MAT: New Asset Attribute in Admin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Login system successfully.
-Error: Cannot find ('id', 'setup') in 20 seconds
-Traceback (most recent call last):
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\MAT_TimeAccounting.py", line 13, in setUp
-    self.dashBoard.accessAdmin()
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\LoginPage.py", line 85, in accessAdmin
-    self.switchToCurrentContainer(Dashboard.setUpFrame)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\public\BasePage.py", line 82, in switchToCurrentContainer
-    self.uidriver.switchToDefaultContent()
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\public\UIDriver.py", line 246, in switchToDefaultContent
-    self._driver.switch_to_default_content()
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 543, in switch_to_default_content
-    self._switch_to.default_content()
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\switch_to.py", line 52, in default_content
-    self._driver.execute(Command.SWITCH_TO_FRAME, {'id': None})
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 201, in execute
-    self.error_handler.check_response(response)
-  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 181, in check_response
-    raise exception_class(message, screen, stacktrace)
-NoSuchWindowException: Message: Unable to get browser
-
+pt1.1: Login system successfully.
+Access  Assets successfully.
+Access Administration successfully.
+Logout successfully.
 
 
         </pre>
@@ -275,32 +258,25 @@ NoSuchWindowException: Message: Unable to get browser
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='errorCase'><div class='testcase'>test_TC_TimeAccount_002_NewTimeTypeInAdmin_MAT: Create Time Type In Admin</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_TC_Assets_004_NewAsset_MAT: New Reference Assets Record</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: Error : Can't find element  ('name', 'password')
-Traceback (most recent call last):
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\MAT_TimeAccounting.py", line 12, in setUp
-    loginSystem(self)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\CaseTemplate.py", line 19, in loginSystem
-    self.loginPage.loginSystem(siteInfo["agency"],siteInfo["username"],siteInfo["password"])
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\LoginPage.py", line 29, in loginSystem
-    self.uidriver.setTextToElement(LoginPage.pwordInput,passWord)
-  File "C:\Users\grace.tang\Desktop\ps\AA_Selenium\cases\pages\public\UIDriver.py", line 335, in setTextToElement
-    element.clear()
-AttributeError: 'NoneType' object has no attribute 'clear'
+pt1.2: Login system successfully.
+Access  Assets successfully.
+Error : Can't find element  ('id', 'value(assetSize)')
+Logout successfully.
 
 
         </pre>
@@ -313,9 +289,9 @@ AttributeError: 'NoneType' object has no attribute 'clear'
 <tr id='total_row'>
     <td>Total</td>
     <td>2</td>
-    <td>0</td>
-    <td>0</td>
     <td>2</td>
+    <td>0</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

@@ -12,9 +12,9 @@ import unittest
 #################################################################################################################################
 
 def loginSystem(self):
-	self.uidriver = UIDriver("IE")
+	self.uidriver = UIDriver("Firefox")
 	self.baseUrl = siteInfo["site"]
-	self.uidriver.get(self.baseUrl)	
+	self.uidriver.get(self.baseUrl)
 	self.loginPage = LoginPage(self.uidriver)
 	self.loginPage.loginSystem(siteInfo["agency"],siteInfo["username"],siteInfo["password"])
 	# Access New UI

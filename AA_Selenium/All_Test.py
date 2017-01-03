@@ -5,6 +5,7 @@ import os,datetime,time
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
+from cases.MAT_Assets import MAT_Assets
 
 # creat MAT test suite
 
@@ -21,6 +22,16 @@ def createSuite():
 	return testUnit
 
 
+def createAssetSuite():
+	caseList = ("test_TC_Assets_001_NewAttributeInAdmin_MAT","test_TC_Assets_004_NewAsset_MAT")
+ #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
+	testUnit = unittest.TestSuite()
+
+	for case in caseList:
+		testUnit.addTest(MAT_Assets(case))
+
+	return testUnit
+
 
 def sendReport(reportDir):
 	sender ='lltang0928@163.com'
@@ -28,7 +39,7 @@ def sendReport(reportDir):
 	subject = 'python mail learn'
 	smtpServer = 'smtp.163.com'
 	username = 'lltang0928@163.com'
-	password = 'tll657445'
+	password = 'haha'
 	# Read report
 	fr = open(reportDir,'rb') 
 	content = fr.read()
@@ -55,7 +66,7 @@ reportName = '.\\report\\AAMTest'+now+'.html'
 
 
 
-MAT_case = createSuite()
+MAT_case = createAssetSuite()
 
 fp = file(reportName,'wb')
 

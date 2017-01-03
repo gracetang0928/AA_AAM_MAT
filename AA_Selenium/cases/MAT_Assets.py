@@ -132,7 +132,7 @@ class  MAT_Assets(unittest.TestCase):
 if __name__=="__main__":
 #	unittest.main()
 #################################################################################################################################	
-	caseList = ("test_pp",)
+	caseList = ("test_TC_Assets_001_NewAttributeInAdmin_MAT","test_TC_Assets_004_NewAsset_MAT",)
  #"test_NewAsset_MAT"m"test_SearchAndUpdateAsset_MAT","test_UpdateAsset_MAT","test_CloneAsset_MAT","test_DeleteAsset_MAT",
 	testUnit = unittest.TestSuite()
 
